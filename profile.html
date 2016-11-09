@@ -1,92 +1,100 @@
 <style>
 
-    .border {
-        border: 1px solid blue;
-        
-    }
-        .border2 {
-        border: 1px solid red;
-        
-    }
-      .border3 {
-        border: 1px solid green;
-        
-    }
-    img.resize{
-   max-width:50%;
-   max-height:50%;
+    body {
+  padding-top: 30px;
+  padding-bottom: 10px;
 }
-</style>
 
+.theme-dropdown .dropdown-menu {
+  position: static;
+  display: block;
+  margin-bottom: 20px;
+}
+
+.theme-showcase > p > .btn {
+  margin: 5px 0;
+}
+
+.theme-showcase .navbar .container {
+  width: auto;
+}
+    
+</style>
 <head>
   <title>Basic Profile Page</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+  <link href="http://getbootstrap.com/dist/css/bootstrap-theme.min.css" rel="stylesheet">
+  <link href="http://getbootstrap.com/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 </head>
-
 <body>
+    <div class="container">
 <div class="row">
-<div class="col-md-12">
-    <h1 class="text-primary bg-primary" align="center"> Ahmed I Syed</h1>
+    <div class="col-md-10">
+    <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Profile Page</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">About</a></li>
+              <li><a href="#profile">Profile</a></li>
+              <li><a href="#contact">Projects</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contacts<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="#">Action</a></li>
+                  <li><a href="#">Another action</a></li>
+                  <li><a href="#">Something else here</a></li>
+                  <li role="separator" class="divider"></li>
+                  <li class="dropdown-header">Nav header</li>
+                  <li><a href="#">Separated link</a></li>
+                  <li><a href="#">One more separated link</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
     </div>
-    </div>  
-</div>
-<div class="row">
-    <div id='row1col1' class="col-sm-2 "  >
-       <ul>
-        <li><a href="#firstsection">First Link</a></li>
-        <li><a href="#secondsection">Second Link</a></li> 
-        <li><a href="#thirdsection">Third Link</a></li> 
-        </ul>
-    </div>
-     <div id='row1col2' class="col-sm-8 border2" >
-    <h1 class="left-center text-primary bg-primary" >About</h1> 
-         
-    </div>
-         <div id='row1col3' class="col-sm-2 " >
-    
-    </div>
-</div>
-    <div class="row">
-    <div id='row2col1' class="col-sm-2 border">
-    </div>
-        <div id='row2col2' class="col-md-8 border2" >
-    <h1>Projects</h1> 
-    <div class="row">
-            <div class="col-sm-2 border">
-                 <img class='img.resize' src="http://www.underconsideration.com/brandnew/archives/facebook_2015_logo_detail.png" width='100' height='50' alt="facebook"> </img>
-    </div>
-              <div class="col-sm-2 border">
-                   <h3>GitHub</h3>
-    </div>
-              <div class="col-sm-2 border">
-                  <h3>Twitter</h3>
-    </div>
-                     <div class="col-sm-2 border">
-                  <h3>FreeCodeCamp</h3>
-    </div>
-            
-            
-            </div>
-    </div>
-         <div id='row2col3' class="col-sm-2 " >
-    
-    
+    <div class="col-md-2"> 
     </div>
     </div>
     <div class="row">
-    <div id='row3col1' class="col-sm-2 ">
+
+    <div class="col-md-10">
+          <p class="pull-right visible-xs">
+            <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+          </p>
+          <div class="jumbotron">
+            <h1>Ahmed Syed</h1>
+            <p>This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.</p>
+          </div>
+       
+    </div>
+    <div clss="col-md-2">
 
     </div>
-     <div id='row3col2' class="col-sm-8 border2" >
-    <h1>Third Section</h1> 
-    
     </div>
-        <div id="row3col3" class="col-sm-2 " >
-    
-    
+        <div class="row">
+        <div id="profile" class="col-xs-6">
+            <h1>Profile</h1>
+            <p>This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.</p>
+          </div>
+        
+      
+        <div class="col-xs-4">
+ <div align="right">
+      <img src="http://www.reduxloop.com/personal.jpg" class="img-thumbnail" alt="mypicture" width="304" height="236">
     </div>
+        
+        </div>  
+          </div>        
         </div>
-    
-    </body>
+</body>
