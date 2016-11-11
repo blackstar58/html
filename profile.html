@@ -4,7 +4,9 @@
   padding-top: 30px;
   padding-bottom: 10px;
 }
-
+li {
+   padding: 0;
+}
 .theme-dropdown .dropdown-menu {
   position: static;
   display: block;
@@ -12,7 +14,7 @@
 }
 
 .theme-showcase > p > .btn {
-  margin: 5px 0;
+  margin: 0px;
 }
 
 .theme-showcase .navbar .container {
@@ -25,6 +27,9 @@
   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
   <link href="http://getbootstrap.com/dist/css/bootstrap-theme.min.css" rel="stylesheet">
   <link href="http://getbootstrap.com/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
 </head>
 <body>
     <div class="container">
@@ -43,21 +48,11 @@
           </div>
           <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-              <li class="active"><a href="#">About</a></li>
-              <li><a href="#profile">Profile</a></li>
-              <li><a href="#contact">Projects</a></li>
-              <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Contacts<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="#">Action</a></li>
-                  <li><a href="#">Another action</a></li>
-                  <li><a href="#">Something else here</a></li>
-                  <li role="separator" class="divider"></li>
-                  <li class="dropdown-header">Nav header</li>
-                  <li><a href="#">Separated link</a></li>
-                  <li><a href="#">One more separated link</a></li>
-                </ul>
-              </li>
+              <li class="active"><a href="#aboutsection">About</a></li>
+              <li><a href="#ypsmsection">ypSM Search Market Place</a></li>
+                <li><a href="#socalgas">Socal Gas Web Portal</a></li>
+                <li><a href="#editorial">ypSM Editorial Platform</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
         </div>
@@ -66,7 +61,7 @@
     <div class="col-md-2"> 
     </div>
     </div>
-    <div class="row">
+<div id="banner" class="row">
 
     <div class="col-md-10">
           <p class="pull-right visible-xs">
@@ -74,7 +69,7 @@
           </p>
           <div class="jumbotron">
             <h1>Ahmed Syed</h1>
-            <p>This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.</p>
+            <p>Experienced Product Manager focused on building Ad Tech Products</p>
           </div>
        
     </div>
@@ -82,19 +77,88 @@
 
     </div>
     </div>
-        <div class="row">
-        <div id="profile" class="col-xs-6">
-            <h1>Profile</h1>
-            <p>This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.</p>
+<div id="aboutsection" class="row">
+        <div id="about" class="col-xs-6">
+            <h1><u>Core Competencies</u></h1>
+             <ul>
+            <li>Scrum Product Owner / Master Certified</li>
+            <li>Operation and profitability analysis</li>
+            <li>New Product Development and Launch</li>
+            <li>API development and implementation</li>
+            <li>Analyses and Quantitative Modeling</li>
+            <li>Online Advertising (Search and Display) Expert</li>
+            <li>A/B product testing and analysis</li>
+            <li>Business process and systems Implementation</li>
+            </ul>
+            <p>Principal Product Manager focusing on advertising products and platform. Speclized on building next generation of ad technology</p>
           </div>
         
       
         <div class="col-xs-4">
  <div align="right">
       <img src="http://www.reduxloop.com/personal.jpg" class="img-thumbnail" alt="mypicture" width="304" height="236">
+    </div> 
+        </div>  
+          </div>
+<div id="ypsmsection" class='row'>
+        <div id="ypSM" class="col-xs-6">
+            <h1><u>ypSM Market Place</u></h1>
+            <p>This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.</p>
+          </div>
+        
+      
+        <div class="col-xs-4">
+ <div align="right">
+      <img src="http://www.reduxloop.com/ypsm.jpg" class="img-thumbnail" alt="ypSearch" width="350" height="300">
     </div>
         
         </div>  
-          </div>        
+
         </div>
+<div id="socalgas" class='row'>
+        <div id="socalgas" class="col-xs-6">
+            <h1><u>SoCalGas Web Portal</u></h1>
+            <p>This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.</p>
+          </div>
+        
+      
+        <div class="col-xs-4">
+ <div align="right">
+      <img src="http://www.reduxloop.com/socalgas.jpg" class="img-thumbnail" alt="socalgas" width="350" height="200">
+    </div>
+        
+        </div>  
+
+        </div>
+<div id="editorial" class='row'>
+        <div id="ypSM" class="col-xs-6">
+            <h1><u>ypSM Editorial Platform</u></h1>
+            <p>This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.</p>
+          </div>
+
+        <div class="col-xs-4">
+ <div align="right">
+      <img src="http://www.reduxloop.com/editorial.jpg" class="img-thumbnail" alt="editorial" width="350" height="300">
+    </div>
+        
+        </div>  
+
+        </div>
+<div id="contact" class="row">
+          <div id="contact" class="col-xs-6">
+              <h1><u>Contact</u></h1>
+            <p>This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.</p>
+          </div>
+        
+      
+        <div class="col-xs-4">
+ <div align="right">
+    
+        <a href="https://github.com/blackstar58"> <img src="http://www.reduxloop.com/GitHub.jpg" class="img-thumbnail" alt="github" width="100" height="50" border="0"> </a>
+        <a href="https://www.linkedin.com/in/ahmedisyed"><img src="http://www.reduxloop.com/linkedin.jpg" class="img-thumbnail" alt="linkenin" width="100" height="50" border="0"></a>
+     <a href="http://www.reduxloop.com"><img src="http://www.reduxloop.com/logo.jpg" class="img-thumbnail" alt="reduxloop" width="100" height="50" border="0"></a>      
+        </div>
+    </div>
+        </div>
+    </div>
 </body>
