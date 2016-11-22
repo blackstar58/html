@@ -12,22 +12,24 @@
     
     div {
         font-size: 20px;
-        font-family: monospace;            
+        font-family: monospace;
+            
     }
-    .bgimg {
-    background-image: url('http://www.w3schools.com/w3images/forestbridge.jpg');
+body,h1 {font-family: "Raleway", sans-serif}
+body, html {height: 100%}
+.bgimg {
+    background-image: url('/w3images/forestbridge.jpg');
     min-height: 100%;
     background-position: center;
     background-size: cover;
 }
-    .color{
-        color: white;
-    }
-
 </style>
 <head>
   <title>Quotes to Inspire</title>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
         <link href="http://getbootstrap.com/dist/css/bootstrap-theme.min.css" rel="stylesheet">   
         <link href="http://getbootstrap.com/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
@@ -38,7 +40,7 @@
       $("#getMessage").on("click",function(){
        $.ajax({
         cache: false,   
-        url: "http://crossorigin.me/http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1",
+        url: "https://crossorigin.me/http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1",
         type: 'GET',
         dataType: 'json',
         contentType:"json",
@@ -65,17 +67,20 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-<div class="container bgimg">
+<div class="container bgimg w3-display-container w3-animate-opacity w3-text-white">
+    <div class="w3-display-topleft w3-padding-large w3-xlarge">
+    Quotes by Ahmed Syed
+  </div>
     <div class="row">
     <div class="col-xs-2"> </div>
-        <div class="col-xs-8 font">  
-        <h1 class="color" align="center">Quotes to Inspire</h1>
+        <div class="col-xs-8">  
+        <h1 align="center">Quotes to Inspire</h1>
         </div>
         <div class="col-xs-2">  </div>    
     </div>
 <div class="row">
     <div class="col-xs-1"></div>
-    <div id="main" class="text-center well message col-xs-9 ">
+    <div id="main" class="w3-display-middle text-center well message col-xs-9 ">
     </div>
     <div class="col-xs-2"></div>
     </div>    
