@@ -7,8 +7,14 @@
 }
     div.inset {   
         border-style: inset;
+        background-color: crimson;
     }
-
+    
+    div {
+        font-size: 20px;
+        font-family: monospace;
+            
+    }
 
 </style>
 <head>
@@ -30,13 +36,17 @@
         contentType:"json",
         success:function(data){
             var array = data;
-           document.getElementById("link").href = array[0].link;
+            document.getElementById("link").href = array[0].link;
             console.log(array);
             $(".message").html(array[0].content);
             $("#title").text(array[0].title);
-
+            var quote=array[0].content;
+            var author=array[0].title;
+            console.log(quote);
+            console.log(author);
+             $('#tweet-quote').attr('href', 'https://twitter.com/intent/tweet?hashtags=quotes&text=' + encodeURIComponent('"' + quote + '" ' + author));
         },
-                error: function(err) {
+            error: function(err) {
             var data = $.parseJSON(err.responseText);
             showErrorModal(data.errorMessage);
         }
@@ -52,40 +62,35 @@
     <div class="col-xs-2"> </div>
         <div class="col-xs-8">  
         <h1 align="center">Quotes to Inspire</h1>
-        
-        
-        
         </div>
-        <div class="col-xs-2">  </div>
-    
-    
-    
-    
+        <div class="col-xs-2">  </div>    
     </div>
 <div class="row">
-    <div class="col-xs-2"></div>
-    <div class="text-center well message col-xs-8">
+    <div class="col-xs-1"></div>
+    <div id="main" class="text-center well message col-xs-9 ">
     </div>
     <div class="col-xs-2"></div>
     </div>    
-    
 <div id="" class="row">
-    <div class="col-xs-2">
+      <div class="col-xs-1">
     </div>
-        <div class="col-xs-8">
-             <h4 id="title" align="right"></h4>
-    </div>
-        <div class="col-xs-2" align="right">
+        <div class="col-md-9">
+            <div class="col-xs-3">
+            <h4><a id="tweet-quote">Tweet</a></h4>
+            </div>
+            <div class="col-xs-3" align="center" >
+            <h4 id="title"></h4>
+            </div>
+            <div class="col-xs-3" align ="right">
             <h4> <a id="link" href="">Source</a></h4>
-           
+            </div>
     </div>
+      <div class="col-xs-2">
+          
+    </div> 
     </div>
 <div id="button" class="row text-center">
-   <div class="col-xs-2">
-    <a id="twitter" href="http://twitter.com/home?status=Whoever best describes the problem, is the one most likely to solve it.">Tweet</a>
-    
-    </div>
-    <div class="col-xs-10">
+      <div class="col-xs-12" align="center">
     <button id = "getMessage" class = "btn btn-lg btn-success">
         Get Quote
       </button>
@@ -93,3 +98,4 @@
     </div>
     </div>
     </body>
+   
