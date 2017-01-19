@@ -1,0 +1,36 @@
+<div class="container-fluid">
+    <div class="row">
+
+<div class="col-md-4 center">
+    <h1>First Box.</h1>
+    </div>
+<div class="col-md-4 center">
+    <h1>This is test to see fit.</h1>
+    </div>    
+
+<div class="col-md-4">
+    
+    </div>    
+</div>
+
+
+<div class="row">
+    <div class="col-md-5">
+    
+    </div>
+    <div class="col-md-2 top" style="background-color:red" align="center">
+<h1 id="temp" style="background-color:yellow;" class="top" ></h1>
+        <h1 id="loc" class='mid'></h1> 
+
+    </div>
+    <div class="col-md-5">
+     <!-- Rectangular switch -->
+<label class="switch">
+  <input type="checkbox">
+  <div class="slider"></div>
+</label>
+    </div>
+    </div>
+
+</body>
+    </div>

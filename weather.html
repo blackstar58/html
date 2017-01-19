@@ -1,48 +1,33 @@
+
 <!DOCTYPE html>
-<html>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width, initial-scale=1">
+       <meta name="description" content="">
+        <link rel="icon" href="http://getbootstrap.com/favicon.ico">
 
-<p id="demo">Click the button to get your position.</p>
-<button onclick="getLocation()">Try It</button>
-<div id="mapholder"></div>
-<script>
-    
-var x = document.getElementById("demo");
+    <title>Find My Weather App</title>
+    <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://reduxloop.com/script/weather.js">    </script> 
+  
+    </head>
 
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition, showError);
-    } else {
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
+  <body>
 
-function showPosition(position) {
-    var latlon = position.coords.latitude + "," + position.coords.longitude;
+    <div class="container">
 
-    var img_url = "https://maps.googleapis.com/maps/api/staticmap?center="
-    +latlon+"&zoom=14&size=400x300&sensor=false";
-    document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
-}
-
-function showError(error) {
-    switch(error.code) {
-        case error.PERMISSION_DENIED:
-            x.innerHTML = "User denied the request for Geolocation."
-            break;
-        case error.POSITION_UNAVAILABLE:
-            x.innerHTML = "Location information is unavailable."
-            break;
-        case error.TIMEOUT:
-            x.innerHTML = "The request to get user location timed out."
-            break;
-        case error.UNKNOWN_ERROR:
-            x.innerHTML = "An unknown error occurred."
-            break;
-    }
-}
-</script>
-
-</body>
+      <div class="jumbotron">
+        <h1 id ="loc">What is your weather?</h1>
+        <h1 id="temp" class="lead"></h1>
+        <p><a id="change" class="btn btn-sm btn-info" role="button">Change to Celsius</a></p>
+          
+      </div>  
+    </div> 
+  </body>
 </html>
+
 

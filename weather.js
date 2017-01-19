@@ -9,7 +9,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
       $(document).ready(function() {
       $.ajax({
         type: 'GET',
-        url: 'http://api.openweathermap.org/data/2.5/weather',
+        url: 'https://api.openweathermap.org/data/2.5/weather',
         data: {lat:lat,
                lon:long,
                appid:'c163954ce735926f7d6eea7476f5c959'},
@@ -20,30 +20,41 @@ navigator.geolocation.getCurrentPosition(function(position) {
             var array = data;
             console.log(array);
             var farh = Math.ceil(((data.main.temp)*(9/5))-459.67);
-            farh += " F";
+            var updateFarh = farh + String.fromCharCode(176) + "F";
             var cal = Math.ceil(data.main.temp - 273.15);
-            console.log(cal);
-            console.log(farh);
-            $("#temp").text(farh);
+            var updateCal = cal + String.fromCharCode(176) + "C";
+            $("#temp").text(updateFarh);
             $("#loc").text(data.name);
-            farh = 32;
+            
+            
+            $("#change").on("click", function(){
+                var el = $("#temp").text();
+                 if(el === updateFarh){
+                    $("#temp").text(updateCal);
+                    $('#change').text("Change to Fahrenheit"); 
+                    
+                } else if (el === updateCal) {
+                    $("#temp").text(updateFarh);
+                    $('#change').text("Change to Celcius"); 
+                } 
+            });
+            
+    
       if(farh <= 40){
           document.body.background = "http://www.reduxloop.com/images/winter-wallpaper-12.jpg";
-          document.getElementById('temp').style.color = "red";
-          document.getElementById('loc').style.color = "red";
+          
       }else if(farh >= 41 & farh <= 65){
+          
           document.body.background = "http://www.reduxloop.com/images/fall.jpg";
-          document.getElementById('temp').style.color = "white";
-          document.getElementById('loc').style.color = "white";
+          
       } else if (farh >=66 & farh >= 75){
+      
           document.body.background = "http://www.reduxloop.com/images/spring.jpg";
-          document.getElementById('temp').style.color = "white";
-          document.getElementById('loc').style.color = "white";
+          
       }else{
-         document.body.background = "http://www.reduxloop.com/images/summer.jpg";
-          document.getElementById('temp').style.color = "white";
-          document.getElementById('loc').style.color = "white";       
-      }
+      
+          document.body.background = "http://www.reduxloop.com/images/summer.jpg";
+         }
         },
             error: function(err) {
             var data = $.parseJSON(err.responseText);
