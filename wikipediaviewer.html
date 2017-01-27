@@ -24,16 +24,43 @@ function myFunction() {
 
 <body>
     <div class="container">
-<div class="row"></div>
+
         <div class="row">
       <div class="jumbotron" align="center">
         <h1 id ="loc">Wikipedia Search</h1>
+            </div>
+    <div class="row">
+        <div class='col-md-3'>                
+        </div>    
+        <div class='col-md-6'>
           <p>
-        <input type = "text" id ="searchbox" value = "" />
+        <input type = "text" class="form-control" id ="searchbox" value = "" placeholder = "Enter Search Criteria Here" />
         </p>
+        </div>
+                <div class='col-md-3'>                
+                    
+        </div> 
         
-    </fieldset>
-    <p><a id="search" class="btn btn-lg btn-info" role="button" onclick ="myFunction()">Search</a></p>
+        </div>
+            <div class="row">
+            <div class='col-md-5'>                
+        </div>    
+        <div class='col-md-2'>
+          <p><a id="search" class="btn btn-lg btn-info" role="button" onclick ="myFunction()" align='center'>Search</a></p>
+        </div>
+                <div class='col-md-5'>                
+        </div> 
+        </div>
+                <div class="row">
+            <div class='col-md-5'>                
+        </div>    
+        <div class='col-md-2'>
+          <div class="wrapper fullHeight" id="search"><a class="white-text" href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">Random article</a><br/>   
+        </div>
+                <div class='col-md-5'>                
+        </div> 
+        </div>
+        
     <div id='myDIV'>
     <table border="1" style="width:100%" id='myTable'>
   <tr>

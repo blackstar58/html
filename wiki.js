@@ -1,5 +1,7 @@
 $(document).ready(function(){
   $("#myDIV").hide();
+
+    
     
 $("#search").on("click",function(){     
     var searchQuery = document.getElementById("searchbox").value;
@@ -24,6 +26,7 @@ $("#search").on("click",function(){
         var cell3 = row.insertCell(2);        
         cell1.innerHTML = data[1][i];
         cell2.innerHTML = data[2][i];
+        //ll2.interHTML("href",data[3][i]);
         cell3.innerHTML = data[3][i];        
 
             
