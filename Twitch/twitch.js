@@ -11,8 +11,7 @@ console.log(data);
 console.log(data.stream);     
 console.log(data._links);
 console.log(data.stream.game);     
-document.getElementById("thumbnail_image").src = data.stream.channel.profile_banner; 
-     
+document.getElementById("Title").textContent = data.stream.game;     
      })  
 })
 
