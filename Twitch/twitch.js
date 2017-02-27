@@ -14,7 +14,7 @@ channels.forEach(function(element){
     
     
     $.getJSON("https://api.twitch.tv/kraken/streams/"+element+"?client_id=sbp1wnku2j32dtnjj4qefhslopxq8s",function(data){
-      
+    
 
         if(data.stream === null){
             
@@ -48,15 +48,14 @@ channels.forEach(function(element){
             cell2 = row.insertCell(1);
             cell3 = row.insertCell(2);
             cell1.innerHTML 
-           
             var img = document.createElement('img');
             img.src = data.stream.channel.logo;
             cell1.appendChild(img)
-            img.height = 100;
-            img.width = 100;
+            img.height = 75;
+            img.width = 75;
             cell2.innerHTML = element;
-        cell2.setAttribute("href",data._links.channel)
-            cell3.innerHTML = data._links.channel;
+            cell2.innerHTML=  '<a href="'+data.stream.channel.url+'">'+element+'</a>';
+            cell3.innerHTML = data.stream.channel.url;
             
         }
 
