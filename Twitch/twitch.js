@@ -26,7 +26,7 @@ channels.forEach(function(element){
             cell3 = row.insertCell(2);
             cell1.innerHTML = "Offline";
             cell2.innerHTML = element; 
-            cell3.innerHTML = data._links.channel;
+            cell3.innerHTML = "Offline";
             
     
         } else if (data.stream === undefined) {
@@ -38,9 +38,18 @@ channels.forEach(function(element){
             cell3 = row.insertCell(2);
             cell1.innerHTML = "Account Closed";
             cell2.innerHTML = element; 
-            cell3.innerHTML = data._links.channel;
+            cell3.innerHTML = "Offline"
         
-        }else {            
+        }else {  
+            
+            
+            var game = data.stream.channel.game
+            var followers = data.stream.channel.followers
+            var mature = data.stream.channel.mature
+            var language = data.stream.channel.language
+            var status = data.stream.channel.status
+            console.log("Game Being Played: "+ game +"\nNumber of Followers: "+ followers +"\nIs this game adult only: "+mature+ "\n\What is the language used: "+ language+"\nWhat is the current status: " + status)
+           
             feedReturn.push(["Online",data._links.channel,element]);
             table = document.getElementById("dataTable")
             row = table.insertRow(1);
@@ -55,7 +64,7 @@ channels.forEach(function(element){
             img.width = 75;
             cell2.innerHTML = element;
             cell2.innerHTML=  '<a href="'+data.stream.channel.url+'">'+element+'</a>';
-            cell3.innerHTML = data.stream.channel.url;
+            cell3.innerHTML = game +" , " + status;
             
         }
 
