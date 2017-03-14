@@ -35,40 +35,54 @@
 .btn:hover {
   background: #1d262b;
   text-decoration: none;
-}
-
-        
+}        
 .myButton {
     background: #f44336;
     padding-right: 35px; 
     padding-left:  35px;   
+        }        
+.zeroButton {
+        padding-right: 138px; 
+        padding-left: 130x; 
+        text-align: center;
         }
-        
-        .equalSign {
-            padding-bottom: 40px;
-           
-        }    
-        
-        .zeroButton {
-                padding-right: 80px; 
-                padding-left: 80px;  
-                align-self:auto;
+.superDiv {
+            
+            background-color: lightblue;
+            padding-right: 1px;
+            padding-left: 1px;
+            padding-top: 10px;
+            padding-bottom: 10px;          
+        }
+        .panelDesign {
+            
+            background-color: white;
+            padding-right: 10px;
+            padding-left: 10px;
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-left: auto;
+            margin-right: auto;
             
         }
-    
     </style>
     
 </head>
 <div class="container">
 <body>
-    <div padding-bottom ="30px" class="row">
+    <div  class="row">
    
         <div class='col-lg-12' align='center'><h1><u>Calculator</u></h1> </div>
        
     </div>
     <div class="row">
-        <div class='col-md-3'> </div>
-        <div class='col-md-6' align='center'>
+        <div class='col-md-4'> </div>
+        <div class='col-md-5' align='center'>
+            
+            <div class="superDiv">
+                <div class="panel panel-default panelDesign">
+                <div class="panel-body ">Panel Content</div>
+                    </div>
       <div class="btn-group ">
           <p>
           <button id ="AC" type="button" class="btn myButton">AC</button>
@@ -98,21 +112,20 @@
           <button type="button" class="btn">1</button>
           <button type="button" class="btn">2</button>
           <button type="button" class="btn">3</button>
-          <button type="button" class="btn equalSign">&equals;</button>
+          <button type="button" class="btn">&plusmn;</button>
                           </p>
             </div>
                   <div class="btn-group ">
                       <p align='left'>
           <button type="button" class="btn zeroButton">0</button>
           <button type="button" class="btn">&period;</button>
+          <button type="button" class="btn">&equals;</button>
           
           
                           </p>
-            </div>
+            </div> 
             
-            
-            
-            
+        </div>
         </div>
     <div class='col-md-3'> </div>    
 
