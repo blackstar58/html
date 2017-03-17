@@ -63,6 +63,9 @@
             padding-bottom: 5px;
             margin-left: auto;
             margin-right: auto;
+            color: black;
+            font-size: 30;
+            text-align: left;
             
         }
     </style>
@@ -81,50 +84,52 @@
             
             <div class="superDiv">
                 <div class="panel panel-default panelDesign">
-                <div class="panel-body ">Panel Content</div>
+                <div id="panel" class="panel-body "><b>0</b></div>
                     </div>
-      <div class="btn-group ">
+      
+                <div id="theParent">
+                <div class="btn-group ">
           <p>
           <button id ="AC" type="button" class="btn myButton">AC</button>
-          <button type="button" class="btn myButton">CE</button>
-          <button type="button" class="btn">&divide;</button>
-          <button type="button" class="btn">&times;</button>
+          <button id="CE" type="button" class="btn myButton">CE</button>
+          <button id="division" type="button" class="btn">&divide;</button>
+          <button id="multiply" type="button" class="btn">&times;</button>
               </p>
             </div>
           <div class="btn-group ">
               <p>
-          <button type="button" class="btn">7</button>
-          <button type="button" class="btn">8</button>
-          <button type="button" class="btn">9</button>
-          <button type="button" class="btn">&minus;</button>
+          <button id="7" type="button" class="btn">7</button>
+          <button id="8" type="button" class="btn">8</button>
+          <button id="9" type="button" class="btn">9</button>
+          <button id="minus" type="button" class="btn">&minus;</button>
                   </p>
             </div>
                   <div class="btn-group ">
                       <p>
-          <button type="button" class="btn">4</button>
-          <button type="button" class="btn">5</button>
-          <button type="button" class="btn">6</button>
-          <button type="button" class="btn">&plus;</button>
+          <button id="4" type="button" class="btn">4</button>
+          <button id="5" type="button" class="btn">5</button>
+          <button id="6" type="button" class="btn">6</button>
+          <button id="plus" type="button" class="btn">&plus;</button>
                           </p>
             </div>
                   <div class="btn-group " >
                       <p>
-          <button type="button" class="btn">1</button>
-          <button type="button" class="btn">2</button>
-          <button type="button" class="btn">3</button>
-          <button type="button" class="btn">&plusmn;</button>
+          <button id="1" type="button" class="btn">1</button>
+          <button id="2" type="button" class="btn">2</button>
+          <button id="3" type="button" class="btn">3</button>
+          <button id="plusmn" type="button" class="btn">&plusmn;</button>
                           </p>
             </div>
                   <div class="btn-group ">
                       <p align='left'>
-          <button type="button" class="btn zeroButton">0</button>
-          <button type="button" class="btn">&period;</button>
-          <button type="button" class="btn">&equals;</button>
+          <button id="zero" type="button" value='0' class="btn zeroButton">0</button>
+          <button id="period" type="button" class="btn">&period;</button>
+          <button id="equals" type="button" class="btn">&equals;</button>
           
           
                           </p>
             </div> 
-            
+                </div>
         </div>
         </div>
     <div class='col-md-3'> </div>    
