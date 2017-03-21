@@ -24,7 +24,7 @@ var calcChain = [];
      
      
    var theParent = document.querySelector("#theParent");
-     
+     console.log(theParent);
     
      
   for (var i = 0; i < theParent.children.length; i++) {
@@ -33,7 +33,7 @@ var calcChain = [];
 }
  
 function doSomething(e) {
-    var clickedItem = e.target.id;
+    
      console.log(clickedItem);
      panel.innerHTML = clickedItem;
    }   
