@@ -29,21 +29,20 @@ var calcChain = [];
      
   for (var i = 0; i < theParent.children.length; i++) {
     var childElement = theParent.children[i];
+      console.log(childElement);
     childElement.addEventListener('click', doSomething, false);
 }
  
 function doSomething(e) {
     
-     console.log(clickedItem);
-     panel.innerHTML = clickedItem;
-   }   
-   
-     
-     
-     
+     console.log(e.toElement.id);
     
- 
-     
+     panel.innerHTML = e.toElement.id;
+    
+    
+    
+    
+   }   
      
 })
     
