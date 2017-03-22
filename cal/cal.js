@@ -1,94 +1,154 @@
-var currentValue;
+var currentValue = null;
 var totalValue;
 var calcChain = [];
+var temp;
 
 
-
- $(document).ready(function() {     
-
-     
-     
+ $(document).ready(function() {      
    var theParent = document.querySelector("#theParent");
-     console.log(theParent);
-    
-     
+   
   for (var i = 0; i < theParent.children.length; i++) {
     var childElement = theParent.children[i];
-      console.log(childElement);
+      
     childElement.addEventListener('click', doSomething, false);
 }
  
 function doSomething(e) {
     
-     console.log(e.toElement.id);
+    
     
     var value = e.toElement.id;
      panel.innerHTML = e.toElement.id;
     
     switch(value){
         case '1':
-            panel.innerHTML = '1';
+           
+            calcChain.push('1');
+            currentValue = checkNull(currentValue,'1');
+            console.log(currentValue);
+            console.log(calcChain);
+             panel.innerHTML = currentValue;
             break;
         case '2':
-            panel.innerHTML = '2';
+            calcChain.push('2');
+            currentValue = checkNull(currentValue,'2');
+            console.log(calcChain);
+            console.log(currentValue);
+            panel.innerHTML = currentValue;
             break;
         case '3':
-            panel.innerHTML = '3';
+           
+         
+            calcChain.push('3');
+            currentValue = checkNull(currentValue,'3');
+            panel.innerHTML = currentValue;
+            console.log(calcChain);
             break;
         case '4':
-            panel.innerHTML = '4';
+           
+            currentValue = checkNull(currentValue,'4');
+            panel.innerHTML = currentValue;
+            calcChain.push('4');
+            console.log(currentValue);
+            console.log(calcChain);
             break;
         case '5':
-            panel.innerHTML = '5';
+           
+            currentValue = checkNull(currentValue,'5');
+            panel.innerHTML = currentValue;
+            calcChain.push('5');
+            console.log(currentValue);
+            console.log(calcChain);
             break;
         case '6':
-            panel.innerHTML = '6';
+            currentValue = checkNull(currentValue,'6');
+            panel.innerHTML = currentValue;
+            calcChain.push('6');
+            console.log(currentValue);
+            console.log(calcChain);
             break;
         case '7':
-            panel.innerHTML = '7';
+            currentValue = checkNull(currentValue,'7');
+            panel.innerHTML = currentValue;
+            calcChain.push('7');
+            console.log(currentValue);
+            console.log(calcChain);
             break;
         case '8':
-            panel.innerHTML = '8';
+            currentValue = checkNull(currentValue,'8');
+            panel.innerHTML = currentValue;
+            calcChain.push('8');
+            console.log(currentValue);
+            console.log(calcChain);
             break;
         case '9':
-            panel.innerHTML = '9';
+            currentValue = checkNull(currentValue,'9');
+            panel.innerHTML = currentValue;
+            calcChain.push('9');
+            console.log(currentValue);
+            console.log(calcChain);
             break;
-        case '0':
-            panel.innerHTML = '0';
+        case 'zero':
+            currentValue = checkNull(currentValue,'0');
+            panel.innerHTML = currentValue;
+            calcChain.push('0');
+            console.log(currentValue);
+            console.log(calcChain);
             break;
         case 'divison':
             panel.innerHTML = '&bsol;';
+            calcChain.push('/');
+            console.log(calcChain);
             break;
         case 'multiply':
             panel.innerHTML = '&ast;';
+            calcChain.push('*');
+            console.log(calcChain);
             break;
         case 'plus':
             panel.innerHTML = '&plus;';
+            calcChain.push('+');
+            console.log(calcChain);
             break;
         case 'minus':
             panel.innerHTML= '&minus;'
+            calcChain.push('-');
+            console.log(calcChain);
             break;
         case 'equals':
             panel.innerHTML = '&equals;';
+            calcChain.push('=');
+            console.log(calcChain);
             break;
         case 'period':
-            panel.innerHTML = '&period;';
+            currentValue = checkNull(currentValue,'.');
+            panel.innerHTML = currentValue;
+            console.log(currentValue);
+            calcChain.push('.');
+            console.log(calcChain);
             break;
         case 'AC':
-            panel.innerHTML
+            calcChain = [];
+            console.log(calcChain);
+            
         default:
-            panel.innerHTML = '0';
+            panel.innerHTML = 'break';
             
-        
+      
+    }
+        function checkNull(currentValue,value){
+        if (currentValue == null){
+            return currentValue = value;
+        } else {
+                return currentValue += value;
+            }
             
-            
-            
-            
-            
+        }
     }
     
+
     
    }   
      
-})
+)
     
