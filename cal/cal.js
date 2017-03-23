@@ -3,11 +3,11 @@ var totalValue;
 var calcChain = [];
 var temp;
 
+$(document).ready(function (){      
 
- $(document).ready(function() {      
-   var theParent = document.querySelector("#theParent");
+    var theParent = document.querySelector("#theParent");
    
-  for (var i = 0; i < theParent.children.length; i++) {
+    for (var i = 0; i < theParent.children.length; i++) {
     var childElement = theParent.children[i];
       
     childElement.addEventListener('click', doSomething, false);
@@ -89,6 +89,7 @@ function doSomething(e) {
             console.log(calcChain);
             break;
         case 'zero':
+            
             currentValue = checkNull(currentValue,'0');
             panel.innerHTML = currentValue;
             calcChain.push('0');
@@ -121,7 +122,13 @@ function doSomething(e) {
             console.log(calcChain);
             break;
         case 'period':
-            currentValue = checkNull(currentValue,'.');
+            
+            if(currentValue.indexOf('.') == -1){
+                currentValue = checkNull(currentValue,'.');    
+            } else {
+                panel.innerHTML = currentValue;
+            }
+            
             panel.innerHTML = currentValue;
             console.log(currentValue);
             calcChain.push('.');
@@ -130,9 +137,16 @@ function doSomething(e) {
         case 'AC':
             calcChain = [];
             console.log(calcChain);
-            
+            panel.innerHTML = '0';
+            break;
+        case 'CE':
+            currentValue = null;
+            console.log(currentValue);
+            console.log(calcChain);
+            panel.innerHTML = '0';
+            break;
         default:
-            panel.innerHTML = 'break';
+            panel.innerHTML = '0';
             
       
     }
