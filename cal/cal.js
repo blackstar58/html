@@ -22,69 +22,59 @@ function doSomething(e) {
     
     switch(value){
         case '1':
-           
-            calcChain.push('1');
             currentValue = checkNull(currentValue,'1');
             console.log(currentValue);
             console.log(calcChain);
              panel.innerHTML = currentValue;
             break;
         case '2':
-            calcChain.push('2');
+            
             currentValue = checkNull(currentValue,'2');
             console.log(calcChain);
             console.log(currentValue);
             panel.innerHTML = currentValue;
             break;
         case '3':
-           
-         
-            calcChain.push('3');
             currentValue = checkNull(currentValue,'3');
             panel.innerHTML = currentValue;
             console.log(calcChain);
             break;
         case '4':
-           
             currentValue = checkNull(currentValue,'4');
             panel.innerHTML = currentValue;
-            calcChain.push('4');
             console.log(currentValue);
             console.log(calcChain);
             break;
         case '5':
-           
             currentValue = checkNull(currentValue,'5');
             panel.innerHTML = currentValue;
-            calcChain.push('5');
             console.log(currentValue);
             console.log(calcChain);
             break;
         case '6':
             currentValue = checkNull(currentValue,'6');
             panel.innerHTML = currentValue;
-            calcChain.push('6');
             console.log(currentValue);
             console.log(calcChain);
             break;
         case '7':
             currentValue = checkNull(currentValue,'7');
             panel.innerHTML = currentValue;
-            calcChain.push('7');
+           
             console.log(currentValue);
             console.log(calcChain);
             break;
         case '8':
             currentValue = checkNull(currentValue,'8');
             panel.innerHTML = currentValue;
-            calcChain.push('8');
+            
             console.log(currentValue);
             console.log(calcChain);
             break;
         case '9':
             currentValue = checkNull(currentValue,'9');
             panel.innerHTML = currentValue;
-            calcChain.push('9');
+            
             console.log(currentValue);
             console.log(calcChain);
             break;
@@ -92,35 +82,77 @@ function doSomething(e) {
             
             currentValue = checkNull(currentValue,'0');
             panel.innerHTML = currentValue;
-            calcChain.push('0');
+            
             console.log(currentValue);
             console.log(calcChain);
             break;
         case 'divison':
-            panel.innerHTML = '&bsol;';
+             if(currentValue == null){
+                panel.innerHTML = '0';
+            } else{
+                calcChain.push(currentValue);
+            panel.innerHTML = '0';
             calcChain.push('/');
             console.log(calcChain);
             break;
+            }
         case 'multiply':
-            panel.innerHTML = '&ast;';
+            
+            if(currentValue == null){
+                panel.innerHTML = '0';
+            } else{
+                calcChain.push(currentValue);
             calcChain.push('*');
+            panel.innerHTML = '0';
+            currentValue = null;
             console.log(calcChain);
-            break;
+            break;    
+            }
+
         case 'plus':
-            panel.innerHTML = '&plus;';
+            if(currentValue == null){
+                panel.innerHTML = '0';
+            } else{
+            calcChain.push(currentValue);    
+            panel.innerHTML = '0';
+            currentValue = null;
             calcChain.push('+');
             console.log(calcChain);
             break;
+            }
         case 'minus':
-            panel.innerHTML= '&minus;'
+            if(currentValue == null){
+                panel.innerHTML = '0';
+            } else{
+            calcChain.push(currentValue);
+            panel.innerHTML= '0';
             calcChain.push('-');
             console.log(calcChain);
             break;
+            }
         case 'equals':
+            if(currentValue == null){
+                panel.innerHTML = '0';
+            } else{
+                
+            for(var j = 0;j < calcChain.length;j++){
+                
+                
+                
+                
+                
+            }
+                
+                
+                
+                
+                
+            calcChain.push(currentValue);    
             panel.innerHTML = '&equals;';
             calcChain.push('=');
             console.log(calcChain);
             break;
+            }
         case 'period':
             
             if(currentValue.indexOf('.') == -1){
