@@ -133,25 +133,20 @@ function doSomething(e) {
         case 'equals':
             if(currentValue == null){
                 panel.innerHTML = '0';
-            } else{
-                
-            for(var j = 0;j < calcChain.length;j++){
-                
-                
-                
-                
-                
-            }
+            } else {
+                calcChain.push(currentValue);  
+                calEngine(calcChain);
+               break; 
+            
                 
                 
                 
                 
                 
-            calcChain.push(currentValue);    
-            panel.innerHTML = '&equals;';
-            calcChain.push('=');
-            console.log(calcChain);
-            break;
+           //calcChain.push(currentValue);    
+            //panel.innerHTML = '&equals;';
+            //calcChain.push('=');
+            //console.log(calcChain);
             }
         case 'period':
             
@@ -163,7 +158,7 @@ function doSomething(e) {
             
             panel.innerHTML = currentValue;
             console.log(currentValue);
-            calcChain.push('.');
+            
             console.log(calcChain);
             break;
         case 'AC':
@@ -190,6 +185,13 @@ function doSomething(e) {
             }
             
         }
+    
+    function calEngine(arr){
+        
+        console.log(arr);
+        
+    }
+    
     }
     
 
