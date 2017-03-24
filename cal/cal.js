@@ -14,12 +14,8 @@ $(document).ready(function (){
 }
  
 function doSomething(e) {
-    
-    
-    
     var value = e.toElement.id;
-     panel.innerHTML = e.toElement.id;
-    
+    panel.innerHTML = e.toElement.id; 
     switch(value){
         case '1':
             currentValue = checkNull(currentValue,'1');
@@ -137,16 +133,6 @@ function doSomething(e) {
                 calcChain.push(currentValue);  
                 calEngine(calcChain);
                break; 
-            
-                
-                
-                
-                
-                
-           //calcChain.push(currentValue);    
-            //panel.innerHTML = '&equals;';
-            //calcChain.push('=');
-            //console.log(calcChain);
             }
         case 'period':
             
@@ -188,7 +174,15 @@ function doSomething(e) {
     
     function calEngine(arr){
         
-        console.log(arr);
+        var total = 0;
+        
+        
+        for(var j =0;j < arr.length;j++){
+            
+            console.log(arr[j]);
+            
+        }
+       
         
     }
     
