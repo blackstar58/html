@@ -56,7 +56,6 @@ function doSomething(e) {
         case '7':
             currentValue = checkNull(currentValue, '7');
             panel.innerHTML = currentValue;
-           
             console.log(currentValue);
             console.log(calcChain);
             break;
@@ -153,12 +152,14 @@ function doSomething(e) {
         
         
         case 'period':
-            if(currentValue.indexOf('.') == -1){
+            
+            if(currentValue == null || currentValue.indexOf('.') == -1){
+                currentValue = '0';
                 currentValue = checkNull(currentValue,'.');    
             } else {
                 panel.innerHTML = currentValue;
             }
-            panel.innerHTML = currentValue;
+                panel.innerHTML = currentValue;
             console.log(currentValue);
             console.log(calcChain);
             break;
@@ -183,7 +184,8 @@ function doSomething(e) {
         if (currentValue == null){
             return currentValue = value;
         } else {
-            if (currentValue == '0'){
+            
+         if (currentValue == '0'){
                 
                 currentValue = value;
                 return currentValue;
@@ -203,7 +205,7 @@ function doSomething(e) {
         for(var j =0;j < arr.length;j++){
             if(j == 0){
                 
-                var t = parseInt(arr[j]);
+                var t = parseFloat(arr[j]);
                        total += t; 
                 console.log(total);
             } else {
@@ -211,28 +213,28 @@ function doSomething(e) {
                 var action = null;
                 if(arr[j] == '+'){
 
-                    action = parseInt(arr[j + 1]);
+                    action = parseFloat(arr[j + 1]);
                     console.log("value of s: " + action);
                     total += action;  
                     console.log("value of total in add: " + total);
                     j++;
                 } else if (arr[j] == '-'){
                     
-                    action = parseInt(arr[j + 1]);
+                    action = parseFloat(arr[j + 1]);
                     console.log("value of m in mimus: " + action);
                     total = total - action;
                     console.log("value of total in minus: " + total);
                     j++
                     
                 }  else if (arr[j] == '*'){
-                    action = parseInt(arr[j + 1]);
+                    action = parseFloat(arr[j + 1]);
                     console.log("value of n in multiply: " + action);
                     total = total * action;
                     console.log("value of total in multiply: " + total);
                     j++;
                 } else if (arr[j] == '/'){
     
-                    action = parseInt(arr[j + 1]);
+                    action = parseFloat(arr[j + 1]);
                     console.log("value of n in divide: " + action);
                     total = total / action;
                     console.log("value of total in divide: " + total);
