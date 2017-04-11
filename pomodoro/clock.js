@@ -1,18 +1,33 @@
 $(document).ready(function (){   
 	
-var longBreak = 15
-var shortBreak = 5
+
 var timelimit = 35
 var pomMin = new Date().getTime() 
 var countDownDate = pomMin + (timelimit * 1000 * 60)
-document.getElementById("demo").innerHTML = "35m : 00s"
+
+$("#plus").on("click",function(){  
+    
+    timelimit = timelimit + 1
+    console.log(timelimit)
+    document.getElementById("value").innerHTML = timelimit; 
+})
+
+    $("#minus").on("click",function(){  
+
+    timelimit = timelimit - 1
+    console.log(timelimit)
+    document.getElementById("value").innerHTML = timelimit; 
+})
+
+
 
   $("#long").on("click",function(){
        timelimit = 15
 	  console.log(timelimit)
 	  pomMin = new Date().getTime() 
 	  countDownDate = pomMin + (timelimit * 1000 * 60)
-	  
+
+      
 var x = setInterval(function() {
 
     var now = new Date().getTime();
@@ -24,8 +39,7 @@ var x = setInterval(function() {
     
     // If the count down is over, write some text 
     if (distance < 0) {
-	
-	    
+
         clearInterval(x);
         document.getElementById("demo").innerHTML = "EXPIRED";
     }
@@ -64,11 +78,22 @@ var x = setInterval(function() {
 	
 
   $("#restart").on("click",function(){
-       timelimit = 35
+      timelimit = parseInt(document.getElementById("value").innerHTML)
 	  console.log(timelimit)
 	  pomMin = new Date().getTime() 
 	  countDownDate = pomMin + (timelimit * 1000 * 60)
-	  
+
+          
+    if(document.getElementById("restart").innerHTML == "Start"){
+        document.getElementById("restart").innerHTML = "Restart"
+        
+        
+    } else {
+        
+         document.getElementById("restart").innerHTML = "Start"
+
+    }
+      
 var x = setInterval(function() {
 
     var now = new Date().getTime();
@@ -78,21 +103,20 @@ var x = setInterval(function() {
     // Output the result in an element with id="demo"
     document.getElementById("demo").innerHTML = minutes + " m"  + " : "+ seconds + " s";
     
-    // If the count down is over, write some text 
-    if (distance < 0) {
-	
-	    
-        clearInterval(x);
-        document.getElementById("demo").innerHTML = "EXPIRED";
+    if(distance < 0){
+        
+        console.log(timelimit)
+        x = setInterval(loop,1000);
+        
     }
+
 }, 1000);
+      
 	   }   
      
 )	
-	  
-// Set the date we're counting down to
-//var countDownDate = new Date("Jan 5, 2018 15:37:25").getTime();
-
+    
+    //end of script
 	   }   
      
 )

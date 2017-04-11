@@ -1,23 +1,30 @@
-<!DOCTYPE HTML>
+
 <html>
-<head>
+<div>
+    <head>
 <title>Pomodoro Clock Timer</title>
-<!-- <link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://bootswatch.com/slate/bootstrap.min.css" rel="stylesheet"> -->
+<!--<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+<!-- <link href="https://bootswatch.com/slate/bootstrap.min.css" rel="stylesheet"> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
-<script src ="file:\\\Users\Patt3rnlogic\Documents\html\html\pomodoro\clock.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<!-- <script src ="file:\\\Users\Patt3rnlogic\Documents\html\html\pomodoro\clock.js"></script> -->
+<script src ="C:\Users\as7639\Documents\GitHub\html\pomodoro\clock.js"></script>
 
 
-
-	
-	
 	
 <style>
 p {
   text-align: center;
-  font-size: 100px;
+  font-size: 75px;
+ font-family:verdana;
+ padding: 1px 1px 1px 1px
 }
+    
+    div.button {
+        padding: 5px 5px 5px 5px
+        
+    }
+    
 
 	.btn {
   background: #3498db;
@@ -32,10 +39,10 @@ p {
   -webkit-box-shadow: 0px 1px 3px #666666;
   -moz-box-shadow: 0px 1px 3px #666666;
   box-shadow: 0px 1px 3px #666666;
-  font-family: Courier New;
+  font-family: verdana;
   color: #ffffff;
   font-size: 20px;
-  padding: 10px 10px 10px 10px;
+  padding: 5px 5px 5px 5px;
   text-decoration: none;
 }
 
@@ -53,15 +60,44 @@ p {
 
 </head>
 <body>
-		
+<div class='row'>
+    <p>
+    <font size='50px' face="verdana">
+   <u>Pomodoro Timer
+        </u>
+       </font>
+    </p>
+    
+    </div>    
+<div class='row'>		
 <p id="demo"></p>
+    </div>
+<div class='row'>
+    <table id="dataTable" align="center" class='rwd-table'>
+    <tbody>
+        <tr>
+            <td> <p></p></td>
+            <td><p id="title"><font size='50px' face="verdana"><label></label></font></p></td>
+    <td><p></p></td>
+        
+        </tr>
+    <tr>
+    <td> <p><button id="plus" type="button" class="btn myButton">&#43;</button></p></td>
+    <td><p><font size='25px' face="verdana"><label  id="value">35</label></font></p></td>
+    <td><p><button id="minus" type="button" class="btn myButton">&#45;</button> </p></td>
+  </tr>
+ </tbody>
+ </table>
+    </div>    
+<div id='button' class='row'>    
  <p>
      <button id="restart" type="button" class="btn myButton">Start</button>     
 	 <button id ="long" type="button" class="btn myButton">Long Break</button>
      <button id="short" type="button" class="btn myButton">Short Break</button>
 	</p>
-
+</div>
 	
 	
 </body>
+    </div>
 </html>
