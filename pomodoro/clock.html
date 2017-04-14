@@ -3,13 +3,11 @@
 <div>
     <head>
 <title>Pomodoro Clock Timer</title>
-<!--<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-<!-- <link href="https://bootswatch.com/slate/bootstrap.min.css" rel="stylesheet"> -->
+<!--<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://bootswatch.com/slate/bootstrap.min.css" rel="stylesheet"> -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-<!-- <script src ="file:\\\Users\Patt3rnlogic\Documents\html\html\pomodoro\clock.js"></script> -->
-<script src ="C:\Users\as7639\Documents\GitHub\html\pomodoro\clock.js"></script>
-
+<script src="http://reduxloop.com/script/clock.js"></script>
 
 	
 <style>
@@ -24,6 +22,7 @@ p {
         padding: 5px 5px 5px 5px
         
     }
+    
     
 
 	.btn {
@@ -45,6 +44,11 @@ p {
   padding: 5px 5px 5px 5px;
   text-decoration: none;
 }
+    .row-bottom-margin { 
+        margin-top: 5px;
+        margin-bottom:5px; }
+    
+
 
 .btn:hover {
   background: #3cb0fd;
@@ -60,7 +64,7 @@ p {
 
 </head>
 <body>
-<div class='row'>
+<div class='row row-bottom-margin'>
     <p>
     <font size='50px' face="verdana">
    <u>Pomodoro Timer
@@ -69,10 +73,13 @@ p {
     </p>
     
     </div>    
-<div class='row'>		
-<p id="demo"></p>
+<div class='row row-bottom-margin'>	
+    <div clas='column'>
+        <p id="demo"></p>
+        </div>
     </div>
 <div class='row'>
+    <div class='column'>
     <table id="dataTable" align="center" class='rwd-table'>
     <tbody>
         <tr>
@@ -88,12 +95,12 @@ p {
   </tr>
  </tbody>
  </table>
-    </div>    
-<div id='button' class='row'>    
+    </div>
+    </div>
+<div id='button' class='row row-bottom-margin'>    
  <p>
      <button id="restart" type="button" class="btn myButton">Start</button>     
 	 <button id ="long" type="button" class="btn myButton">Long Break</button>
-     <button id="short" type="button" class="btn myButton">Short Break</button>
 	</p>
 </div>
 	
