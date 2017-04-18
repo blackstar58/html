@@ -32,10 +32,25 @@ $('#selectO').on("click",function(){
     theGame(userSelection,computerSelection);
 	})//end of select O function	
 
+  var theParent = document.querySelector("#workArea");
+   
+    for (var i = 0; i < theParent.children.length; i++) {
+    var childElement = theParent.children[i];
+      
+    childElement.addEventListener('click', doSomething, false);
+}
     
+function doSomething(e){
+	var value = e.srcElement.id;
+	console.log(value);
+	
+}	
+	
+	
 function theGame(userSelection,computerSelection){
-    
     console.log(userSelection + ":" + computerSelection);
+	
+	
     
     
 }
