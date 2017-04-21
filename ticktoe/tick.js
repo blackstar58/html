@@ -1,40 +1,29 @@
 $(window).on('load',function(){
-	
-$('#myModal').modal('show');
-		
+$('#myModal').modal('show');	
 });
-
-
 
 $(document).ready(function (){  
 	
 var userSelection = null;
 var computerSelection = null;
 var tickMatrix = [];
-var whosMove = null; 
-var tempArray = [];
+var randomNumber = 0;
+
 	
 $('#selectX').on("click",function(){	
-	
 	userSelection = 'X';
 	computerSelection = 'O';
-	console.log("User selects: " + userSelection)
-	console.log("Computer selects: " + computerSelection)
     $('#myModal').modal('hide');
-    whosMove = 0;
-    console.log(whosMove);
 	})//end of select X function
 	
 $('#selectO').on("click",function(){		
 	userSelection = 'O';
 	computerSelection = 'X';
     whosMove = 1;
-    console.log("User selects: " + userSelection)
-	console.log("Computer selects: " + computerSelection)
     $('#myModal').modal('hide');
+    clickSelector();
 	})//end of select O function	
         
-
 var theParent = document.querySelector("#workArea");
     for (var i = 0; i < theParent.children.length; i++) {
     var childElement = theParent.children[i];
@@ -43,75 +32,61 @@ var theParent = document.querySelector("#workArea");
     
 function clickedElement(e){
 	var value = e.srcElement.id;
-   // console.log(userSelection);
-    //console.log(computerSelection);
     e.path[0].innerHTML = userSelection;    
 }	//end of clickElement Modifier
-
-    
-var theMatrixParent = document.querySelector("#theGrid");
+    var theMatrixParent = document.querySelector("#theGrid");
     for (var j = 0; j < theMatrixParent.children.length;j++){
         var subElement = theMatrixParent.children[i];
-        subElement.addEventListener('click',clickSelector,false);
+        subElement.addEventListener('click',userAssign,false);
     } // end of the grid selector
-
-function clickSelector(e){
     
+
+function userAssign(e){
     console.log(e.srcElement.id);
-    var value = e.srcElement.id;
+    var value = parseInt(e.srcElement.id);
     tickMatrix.push(value);
     console.log(tickMatrix)
-    
-    if(whosMove == 0){
-        
-        var maximum = 9;
-        var minimum = 1;
-        var randomnumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
-        console.log(randomnumber);
-        
-        for (var k = 0; k < tickMatrix.length;k++){
-            
-            if(randomnumber == k[i]){
-                
-                randomnumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
-                console.log( "new number: " + randomnumber);
-                
-            } else {
-                console.log("in theloop")
-                document.getElementById(randomnumber).innerHTML = computerSelection;
-                tempArray.push(randomnumber);
-                console.log(tempArray);
-                whosMove = 0;
-                console.log("in matrix:" + whosMove);
-                k = tickMatrix.length;
-                
-            }
-            console.log(tempArray);
-            tickMatrix.concat(tempArray);
-            console.log(tickMatrix);
-            tempArray = [];
-            
-        }//random click element
-        
-    }  //end of if statment
-    
-    
-    
-    
-}    //grid click selector end
-    
-
-
-function computerLogic(){
-    
-    
-    
-    
-    
+    clickSelector();    
 }    
-    
-    
 
+function clickSelector(){   
+    if(randGen() == true){
+        console.log("random number in true: " + randomNumber)
+        document.getElementById(randomNumber).innerHTML = computerSelection;
+        tickMatrix.push(randomNumber);
+        whosMove = 0;
+        console.log("in matrix:" + whosMove);        
+        k = tickMatrix.length;
+    } else if (randGen() == false){
+        $('#myModal').modal('show');	 
+        for(var k=1;k <=9;k++){
+            console.log(k);
+           document.getElementById(k).innerHTML = "";
+            tickMatrix = [];
+        }  //end of reset for loop     
+    
+    }//end of else statement
+
+}    //grid click selector end
+function randGen(){
+    var maximum = 8;
+    var minimum = 1;
+    
+    randomNumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+    console.log("result in randGen: " + randomNumber);
+    
+    console.log(tickMatrix.indexOf(randomNumber) == -1);
+    if(tickMatrix.indexOf(randomNumber) == -1){                                       
+        return true;
+    } else if(tickMatrix.length <= 8) { 
+        randGen();
+        return true;
+    }
+    return false;
+}    //end of random generator
+    
+    
+    
 })//document ready
 
 
