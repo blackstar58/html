@@ -11,6 +11,7 @@ var userMoves = [];
 var computerMoves = [];	
 var winningMoves = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
 var randomNumber = 0;
+    
 
 	
 $('#selectX').on("click",function(){	
@@ -81,8 +82,17 @@ function randGen(){
     var maximum = 8;
     var minimum = 1;
     randomNumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
+    
+    
     if(tickMatrix.indexOf(randomNumber) == -1){   
-		nextMove(randomNumber);
+
+        if(userMoves.length >= 2){
+        var blockMove = nextMove(userMoves);
+        console.log("This is a block move: " + blockMove)
+        randomNumber = blockMove[0];
+    }
+    
+        
         return true;
     } else if(tickMatrix.length <= 8) { 
         randGen();
@@ -91,27 +101,26 @@ function randGen(){
     return false;
 }    //end of random generator
 
+    
 	
-function nextMove(t){
+function nextMove(a){
+    for(var q=0;q < winningMoves.length;q++){
+        var resultsleft = winningMoves[q].filter(isNotIn);
+        function isNotIn(value){
+            return userMoves.indexOf(value) < 0;  
+        } //end of isNotIn
+        if(resultsleft.length == 1){
+            console.log(resultsleft);
+            q = winningMoves.length;
+            return resultsleft;
+            
+        }
+        
+        console.log("value of resultsleft: " + resultsleft);
+        console.log(winningMoves[q]);
+                
+    } //end of next Move for loop
 
-	for (var m = 0;m < userMoves.length;m++){
-
-		console.log("userMoves:" + userMoves[m])
-		
-		if(computerMoves > 0){
-			for(var n=0;n < winningMoves.length;n++){
-			
-			console.log("computerMoves" + winningMoves[m][n]);
-			
-		}//end of for computer loop
-			
-			
-		}//end of if computer statement
-
-		
-		
-	}// end of for user loop
-	
 	
 }//end of next Move	
 	

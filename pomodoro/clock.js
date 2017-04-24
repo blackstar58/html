@@ -13,6 +13,7 @@ function myCounter(countDownDate,status){
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000)
     document.getElementById("demo").innerHTML = minutes + " m"  + " : "+ seconds + " s";
+    document.getElementById("timeTitle").innerHTML =  minutes + " m"  + " : "+ seconds + " s";   
         
     if(distance <= 0 & status == "start"){
         clearInterval(x);
