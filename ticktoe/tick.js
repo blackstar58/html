@@ -7,6 +7,9 @@ $(document).ready(function (){
 var userSelection = null;
 var computerSelection = null;
 var tickMatrix = [];
+var userMoves = [];
+var computerMoves = [];	
+var winningMoves = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
 var randomNumber = 0;
 
 	
@@ -45,7 +48,10 @@ function userAssign(e){
     console.log(e.srcElement.id);
     var value = parseInt(e.srcElement.id);
     tickMatrix.push(value);
-    console.log(tickMatrix)
+	userMoves.push(value);
+    console.log(tickMatrix);
+	console.log(computerMoves);
+	console.log(userMoves);
     clickSelector();    
 }    
 
@@ -54,15 +60,18 @@ function clickSelector(){
         console.log("random number in true: " + randomNumber)
         document.getElementById(randomNumber).innerHTML = computerSelection;
         tickMatrix.push(randomNumber);
-        whosMove = 0;
-        console.log("in matrix:" + whosMove);        
+		computerMoves.push(randomNumber);
+		console.log(computerMoves);
+		console.log(userMoves);
         k = tickMatrix.length;
     } else if (randGen() == false){
         $('#myModal').modal('show');	 
         for(var k=1;k <=9;k++){
-            console.log(k);
+           console.log(k);
            document.getElementById(k).innerHTML = "";
-            tickMatrix = [];
+           tickMatrix = [];
+		   userMoves = [];
+		   computerMoves = [];
         }  //end of reset for loop     
     
     }//end of else statement
@@ -71,12 +80,9 @@ function clickSelector(){
 function randGen(){
     var maximum = 8;
     var minimum = 1;
-    
     randomNumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
-    console.log("result in randGen: " + randomNumber);
-    
-    console.log(tickMatrix.indexOf(randomNumber) == -1);
-    if(tickMatrix.indexOf(randomNumber) == -1){                                       
+    if(tickMatrix.indexOf(randomNumber) == -1){   
+		nextMove(randomNumber);
         return true;
     } else if(tickMatrix.length <= 8) { 
         randGen();
@@ -84,7 +90,31 @@ function randGen(){
     }
     return false;
 }    //end of random generator
-    
+
+	
+function nextMove(t){
+
+	for (var m = 0;m < userMoves.length;m++){
+
+		console.log("userMoves:" + userMoves[m])
+		
+		if(computerMoves > 0){
+			for(var n=0;n < winningMoves.length;n++){
+			
+			console.log("computerMoves" + winningMoves[m][n]);
+			
+		}//end of for computer loop
+			
+			
+		}//end of if computer statement
+
+		
+		
+	}// end of for user loop
+	
+	
+}//end of next Move	
+	
     
     
 })//document ready
