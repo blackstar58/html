@@ -1,4 +1,4 @@
-$(window).on('load',function(){
+$(window).on('load', function(){
 $('#myModal').modal('show');	
 });
 
@@ -56,7 +56,8 @@ function userAssign(e){
     clickSelector();    
 }    
 
-function clickSelector(){   
+function clickSelector(){ 
+    
     if(randGen() == true){
         console.log("random number in true: " + randomNumber)
         document.getElementById(randomNumber).innerHTML = computerSelection;
@@ -83,17 +84,26 @@ function randGen(){
     var minimum = 1;
     randomNumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
     
+    if(userMoves[0] != 5 || userMoves.length == 0){
+        randomNumber = 5;
+        
+    }
+
+    
+    console.log("random outside :" + randomNumber)
     
     if(tickMatrix.indexOf(randomNumber) == -1){   
-
-        if(userMoves.length >= 2){
-        var blockMove = nextMove(userMoves);
+    
+        if(computerMoves.length >= 2){
+            var winMove = winOpp(computerMoves);
+            console.log("This is a winning move: " + winMove);
+            randomNumber = winMove[0];
+        } else if (userMoves.length >= 2){
+        var blockMove = nextMove(userMoves);    
         console.log("This is a block move: " + blockMove)
         randomNumber = blockMove[0];
     }
-    
-        
-        return true;
+       return true;
     } else if(tickMatrix.length <= 8) { 
         randGen();
         return true;
@@ -113,7 +123,25 @@ function nextMove(a){
             console.log(resultsleft);
             q = winningMoves.length;
             return resultsleft;
-            
+        }
+        
+        console.log("value of resultsleft: " + resultsleft);
+        console.log(winningMoves[q]);
+                
+    } //end of next Move for loop
+	
+}//end of next Move	
+
+function winOpp(a){
+     for(var q=0;q < winningMoves.length;q++){
+        var resultsleft = winningMoves[q].filter(isNotIn);
+        function isNotIn(value){
+            return computerMoves.indexOf(value) < 0;  
+        } //end of isNotIn
+        if(resultsleft.length == 1){
+            console.log("results of resultsleft: " + resultsleft);
+            q = winningMoves.length;
+            return resultsleft;
         }
         
         console.log("value of resultsleft: " + resultsleft);
@@ -121,9 +149,7 @@ function nextMove(a){
                 
     } //end of next Move for loop
 
-	
-}//end of next Move	
-	
+}//end of winning move    
     
     
 })//document ready
