@@ -50,9 +50,6 @@ function userAssign(e){
     var value = parseInt(e.srcElement.id);
     tickMatrix.push(value);
 	userMoves.push(value);
-    console.log(tickMatrix);
-	console.log(computerMoves);
-	console.log(userMoves);
     clickSelector();    
 }    
 
@@ -84,17 +81,22 @@ function randGen(){
     var minimum = 1;
     randomNumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
     
-    if(userMoves[0] != 5 || userMoves.length == 0){
+    console.log(userMoves.length);
+    
+    if(userMoves.length == 0){
         randomNumber = 5;
-        
-    }
+    } else if (userMoves[0] != 5 & userMoves.length == 1) {
+               
+               randomNumber = 5;
+               
+               }
 
     
     console.log("random outside :" + randomNumber)
     
     if(tickMatrix.indexOf(randomNumber) == -1){   
     
-        if(computerMoves.length >= 2){
+        if(computerMoves.length >= 1){
             var winMove = winOpp(computerMoves);
             console.log("This is a winning move: " + winMove);
             randomNumber = winMove[0];
@@ -142,6 +144,11 @@ function winOpp(a){
             console.log("results of resultsleft: " + resultsleft);
             q = winningMoves.length;
             return resultsleft;
+        } else if(resultsleft <=2){
+            var oneMove = resultsleft[0];
+            console.log("chance move: " + oneMove);
+            q = winningMoves.length;
+            return oneMove;
         }
         
         console.log("value of resultsleft: " + resultsleft);
