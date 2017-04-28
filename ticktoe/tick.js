@@ -82,24 +82,24 @@ function randGen(){
     randomNumber = Math.floor(Math.random() * (maximum - minimum + 1)) + minimum;
     
     console.log(userMoves.length);
-    
+     console.log("random before if statment :" + randomNumber)
     if(userMoves.length == 0){
+        console.log("ping")
         randomNumber = 5;
-    } else if (userMoves[0] != 5 & userMoves.length == 1) {
-               
-               randomNumber = 5;
-               
-               }
+    } else if (userMoves[0] != 5 && computerMoves.length == 0) {
+        console.log("ping 2")
+               randomNumber = 5;  
+        }
 
     
-    console.log("random outside :" + randomNumber)
+    console.log("random after if :" + randomNumber)
     
     if(tickMatrix.indexOf(randomNumber) == -1){   
     
         if(computerMoves.length >= 1){
             var winMove = winOpp(computerMoves);
             console.log("This is a winning move: " + winMove);
-            randomNumber = winMove[0];
+            randomNumber = winMove;
         } else if (userMoves.length >= 2){
         var blockMove = nextMove(userMoves);    
         console.log("This is a block move: " + blockMove)
@@ -144,11 +144,11 @@ function winOpp(a){
             console.log("results of resultsleft: " + resultsleft);
             q = winningMoves.length;
             return resultsleft;
-        } else if(resultsleft <=2){
+        } else if(resultsleft.length == 2){
             var oneMove = resultsleft[0];
             console.log("chance move: " + oneMove);
             q = winningMoves.length;
-            return oneMove;
+            return resultsleft[0];
         }
         
         console.log("value of resultsleft: " + resultsleft);
