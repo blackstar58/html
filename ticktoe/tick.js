@@ -28,6 +28,7 @@ $('#selectO').on("click",function(){
     clickSelector();
 	})//end of select O function	
         
+        
 var theParent = document.querySelector("#workArea");
     for (var i = 0; i < theParent.children.length; i++) {
     var childElement = theParent.children[i];
@@ -51,8 +52,20 @@ function userAssign(e){
     tickMatrix.push(value);
 	userMoves.push(value);
     clickSelector();    
-}    
-
+}   
+    
+function clearEverything(){
+     $('#myModal').modal('show');	 
+        for(var k=1;k <=9;k++){
+           console.log(k);
+           document.getElementById(k).innerHTML = "";
+           tickMatrix = [];
+		   userMoves = [];
+		   computerMoves = [];
+        }  //end of reset for loop     
+    
+}
+    
 function clickSelector(){ 
     
     if(randGen() == true){
@@ -64,14 +77,7 @@ function clickSelector(){
 		console.log(userMoves);
         k = tickMatrix.length;
     } else if (randGen() == false){
-        $('#myModal').modal('show');	 
-        for(var k=1;k <=9;k++){
-           console.log(k);
-           document.getElementById(k).innerHTML = "";
-           tickMatrix = [];
-		   userMoves = [];
-		   computerMoves = [];
-        }  //end of reset for loop     
+    clearEverything();   
     
     }//end of else statement
 
