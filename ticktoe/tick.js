@@ -11,12 +11,10 @@ var userMoves = [];
 var computerMoves = [];	
 var winningMoves = [[1,2,3],[4,5,6],[7,8,9],[1,4,7],[2,5,8],[3,6,9],[1,5,9],[3,5,7]]
 var randomNumber = 0;
+var whoOne = null;
     
 //selection logic
 
-
-	
-	
 function displayChoice(rand){
 	document.getElementById(rand).innerHTML = computerSelection;
 	tickMatrix.push(rand);
@@ -29,8 +27,7 @@ function clickSelector(){
 	if(userMoves.length == 0){
 		console.log("inside")
     	randomNumber = 5;
-		displayChoice(randomNumber); 
-		
+		displayChoice(randomNumber); 	
 		//assign start value if use did not select anything
     } else if (userMoves[0] != 5 && computerMoves.length == 0) {
 		console.log("what is user movve " + userMoves);
@@ -43,7 +40,6 @@ function clickSelector(){
 			displayChoice(winMove);
 		return;
 			   }
-  
 	winOrLose();
 	//can I win 
 	
@@ -56,11 +52,7 @@ function clickSelector(){
         console.log("This is a block move: " + blockMove)
         displayChoice(blockMove);
     }
-}    //end of click selector
-
-	
-
-	    
+}    //end of click selector   
 //Start of selection service
 	
 $('#selectX').on("click",function(){	
@@ -77,14 +69,12 @@ $('#selectO').on("click",function(){
 	
     clickSelector();
 	})//end of select O function	
-        
-        
+               
 var theParent = document.querySelector("#workArea");
   for (var i = 0; i < theParent.children.length; i++) {
     var childElement = theParent.children[i];
     childElement.addEventListener('click', clickedElement, false);
 }//end of click listener
-    
 function clickedElement(e){
 	var value = e.srcElement.id;
     e.path[0].innerHTML = userSelection;    
@@ -101,29 +91,24 @@ function userAssign(e){
     var value = parseInt(e.srcElement.id);
     tickMatrix.push(value);
 	userMoves.push(value);
-<<<<<<< Updated upstream
     clickSelector();    
 }   
-    
 function clearEverything(){
      $('#myModal').modal('show');	 
         for(var k=1;k <=9;k++){
            console.log(k);
-=======
     clickSelector()    
-}    
+		}    
+}
 //end of selection service  
-//!!! need to add to this 	
 	
 function clearScreen(){
 $('#myModal').modal('show');	 
 	for(var k=1;k <=9;k++){
->>>>>>> Stashed changes
            document.getElementById(k).innerHTML = "";
            tickMatrix = [];
 		   userMoves = [];
 		   computerMoves = [];
-<<<<<<< Updated upstream
         }  //end of reset for loop     
     
 }
@@ -181,11 +166,7 @@ function randGen(){
     return false;
 }    //end of random generator
 
-    
-=======
-	} //end of for loop
-}	//clear all elements on the page
->>>>>>> Stashed changes
+
 	
 	 
 function nextMove(a){
@@ -225,28 +206,18 @@ function winOpp(){
             q = winningMoves.length;
             return resultsleft[0];
         }
-                 
     } //end of next Move for loop
-
 }//end of winning move    
     
 function winOrLose(){
-	
 	for(var t = 0; t < winningMoves.length;t++){
-		
 		var computerWin = winningMoves[t].filter(isNotIn);
 		var userWin = winningMoves[t].filter(isNotIn);
-		
 		if(computerWin.length == 1){
-			
 			console.log("computer can win:" + computerWin);
 		} else if (userWin.length == 1){
-			
 			console.log("user can win: " + userWin);
-		
 		}
-		
-		
 		function isNotIn(value){
             	return (computerMoves.indexOf(value) < 0 && userMoves.indexOf(value) < 0 && tickMatrix.indexOf(value) < 0);  
         			} //end of isNotIn
@@ -254,11 +225,7 @@ function winOrLose(){
 		
 	}
 	
-	
-	
 }
-	
-	
 	
 })//document ready
 
