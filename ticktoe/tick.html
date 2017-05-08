@@ -46,6 +46,39 @@
     text-decoration: none;
     cursor: pointer;
 }	
+	
+.wrapper {
+  display: grid;
+  grid-template-columns: 100px 100px 100px;
+  grid-gap: 10px;
+  background-color: #fff;
+  color: #444;
+}
+
+.box {
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 50px 50px 50px;
+  grid-gap: 5px;
+  background-color: #fff;
+  color: #444;
+}
+
+.box {
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 300%;
+  align-content: center;	
+}
 </style>
 <!-- <script src ="file:\\\Users\Patt3rnlogic\Documents\html\html\ticktoe\tick.js"></script> -->
 <!--<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -71,24 +104,30 @@
     <div id='workArea' class='div'>   
     <div id='rowOne' class='row'>
     <div class='col-lg-12'>
-        <button class='btn' id="1"></button>
-	    <button class='btn' id="2"></button>
-        <button class='btn' id="3"></button>
+		<div class="wrapper">
+        <button class='btn box 1' id="1"></button>
+	    <button class='btn box 2' id="2"></button>
+        <button class='btn box 3' id="3"></button>
         </div>
+		</div>
     </div><!-- end of row one -->
         <div id='rowTwo' class='row'>
-    <div class='col-lg-12'>
-        <button class='btn' id="4"></button>
-	    <button class='btn' id="5"></button>
-        <button class='btn' id="6"></button>
+    <div class='col-lg-12' >
+		<div class = 'wrapper'>
+        <button class='btn box 4' id="4"></button>
+	    <button class='btn box 5' id="5"></button>
+        <button class='btn box 6' id="6"></button>
         </div>
+		</div>
     </div><!-- end of row two -->
         <div id='rowThree' class='row'>
     <div class='col-lg-12'>
-        <button class='btn' id="7"></button>
-	    <button class='btn' id="8"></button>
-        <button class='btn' id="9"></button>
+		<div class='wrapper'>
+        <button class='btn box 7' id="7"></button>
+	    <button class='btn box 8' id="8"></button>
+        <button class='btn box 9' id="9"></button>
         </div>
+		</div>
     </div><!-- end of row three -->    
         </div> <!-- end of allrow -->
 		
