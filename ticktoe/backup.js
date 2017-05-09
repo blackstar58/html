@@ -74,44 +74,42 @@ function nextMoves(){
 		assignSelection(5);
 	} else {
 		console.log("next step");
-		console.log(tickMatrix);
-		console.log(userMoves);
+		console.log("value of tick Matrix: " + tickMatrix);
+		console.log("value of User Moves: " + userMoves);
         
         var whatIsNext = whoWin();
-        console.log(whatIsNext);
-        assignSelection(whatIsNext);
-        
+        console.log("What is Next :" + whatIsNext);
+        assignSelection(whatIsNext); 
         
 	}
 }	//the computer selection
 	
 
 function whoWin(){
-	
     for(var t = 0; t < winningMoves.length;t++){
-        
        var computerWin = winningMoves[t].filter(isNotInComputer);
        var userWin = winningMoves[t].filter(isNotInUser);
-       
+      console.log("User Win " + userWin);
+        console.log("computer Win " + computerWin);    
+    console.log(winningMoves[t]);
+        
         if(computerWin.length == 1){
             console.log("compter can win: " + computerWin);
             return computerWin[0];
-        } else if(userWin == 1){ //computer wins
+        } else if(userWin.length == 1){ //computer wins
             console.log("user can win: " + userWin); 
             return userWin[0];
         } //user wins
+        console.log("This bounces logic!!"); 
+        
         
     function isNotInComputer(value){
-       return computerMoves.indexOf(value) < 0 
-       
+        
+       return computerMoves.indexOf(value) < 0 && tickMatrix.indexOf(value) < 0
     }     //is Not In end
-        
      function isNotInUser(value){
-       return userMoves.indexOf(value) < 0 
-       
+       return userMoves.indexOf(value) < 0 && tickMatrix.indexOf(value) < 0
     }     //is Not In end - UserMoves
-        
-        
     }//end of for loop
 	
     
