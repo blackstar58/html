@@ -94,6 +94,10 @@ function nextMoves(){
 	
 
 function whoWin(){
+    
+    var backup = [];
+    
+    
     for(var t = 0; t < winningMoves.length;t++){
        var computerWin = winningMoves[t].filter(isNotInComputer);
        var userWin = winningMoves[t].filter(isNotInUser);
@@ -106,13 +110,22 @@ function whoWin(){
             return computerWin[0];
         } else if(userWin.length == 1 && tickMatrix.indexOf(userWin[0]) < 0){ //computer wins
             console.log("user can win: " + userWin); 
-            return userWin[0];
-        } //user wins
-		
-        console.log("This bounces logic!!"); 
-		
+            return userWin[0];//user wins
+        } else if(computerWin.length == 2 && tickMatrix.indexOf(computerWin[0]) < 0){
+            
+            backup.push(computerWin);
+            console.log(backup); 
+        }
         
-		
+		console.log(backup);
+        if(t == 7 && backup != null){
+                
+                return backup[0][0];
+                
+            }                
+       
+        console.log("This bounces logic!!"); 
+    		
 		
     function isNotInComputer(value){				
       return computerMoves.indexOf(value) < 0
@@ -121,6 +134,9 @@ function whoWin(){
        return userMoves.indexOf(value) < 0 
     }     //is Not In end - UserMoves
     }//end of for loop
+    
+    
+    
 }//end of compWin	
 	
 	
