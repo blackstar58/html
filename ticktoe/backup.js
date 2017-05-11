@@ -68,11 +68,20 @@ function assignSelection(e){
 	
 function nextMoves(){
 	if(userMoves.length == 0){
-	console.log("Computers First Move");
 		assignSelection(5);	
 	} else if (userMoves[0] !=5 && computerMoves.length == 0){
 		assignSelection(5);
-	} else {
+	}else if(userMoves[0] == 5 && computerMoves.length == 0){
+		var min = 1;
+		var max = 4;
+		var firstMove = Math.floor(Math.random() * (max - min))	+ min;
+		assignSelection(firstMove);
+		
+	} else if (tickMatrix.length >= 7) {
+			   
+			   clearScreen();
+			  
+	}else {
 		console.log("next step");
 		console.log("value of tick Matrix: " + tickMatrix);
 		console.log("value of User Moves: " + userMoves);
@@ -80,7 +89,6 @@ function nextMoves(){
         var whatIsNext = whoWin();
         console.log("What is Next :" + whatIsNext);
         assignSelection(whatIsNext); 
-        
 	}
 }	//the computer selection
 	
@@ -89,33 +97,30 @@ function whoWin(){
     for(var t = 0; t < winningMoves.length;t++){
        var computerWin = winningMoves[t].filter(isNotInComputer);
        var userWin = winningMoves[t].filter(isNotInUser);
-      console.log("User Win " + userWin);
+       console.log("value of t: " + winningMoves[t]);
+		console.log("User Win " + userWin);
         console.log("computer Win " + computerWin);    
-    console.log(winningMoves[t]);
         
-        if(computerWin.length == 1){
+        if(computerWin.length == 1 && tickMatrix.indexOf(computerWin[0]) < 0){
             console.log("compter can win: " + computerWin);
             return computerWin[0];
-        } else if(userWin.length == 1){ //computer wins
+        } else if(userWin.length == 1 && tickMatrix.indexOf(userWin[0]) < 0){ //computer wins
             console.log("user can win: " + userWin); 
             return userWin[0];
         } //user wins
+		
         console.log("This bounces logic!!"); 
+		
         
-        
-    function isNotInComputer(value){
-        
-       return computerMoves.indexOf(value) < 0 && tickMatrix.indexOf(value) < 0
+		
+		
+    function isNotInComputer(value){				
+      return computerMoves.indexOf(value) < 0
     }     //is Not In end
      function isNotInUser(value){
-       return userMoves.indexOf(value) < 0 && tickMatrix.indexOf(value) < 0
+       return userMoves.indexOf(value) < 0 
     }     //is Not In end - UserMoves
     }//end of for loop
-	
-    
-    
-    
-	
 }//end of compWin	
 	
 	
