@@ -77,7 +77,7 @@ function nextMoves(){
 		var firstMove = Math.floor(Math.random() * (max - min))	+ min;
 		assignSelection(firstMove);
 		
-	} else if (tickMatrix.length >= 7) {
+	} else if (tickMatrix.length >= 8) {
 			   
 			   clearScreen();
 			  
@@ -96,37 +96,33 @@ function nextMoves(){
 function whoWin(){
     
     var backup = [];
-    
+    var uPossibleMoves = [];
+    var compPossibleMoves = [];
+
     
     for(var t = 0; t < winningMoves.length;t++){
        var computerWin = winningMoves[t].filter(isNotInComputer);
        var userWin = winningMoves[t].filter(isNotInUser);
-       console.log("value of t: " + winningMoves[t]);
+ /*     console.log("value of t: " + winningMoves[t]);
 		console.log("User Win " + userWin);
-        console.log("computer Win " + computerWin);    
+        console.log("computer Win " + computerWin);    */
         
         if(computerWin.length == 1 && tickMatrix.indexOf(computerWin[0]) < 0){
             console.log("compter can win: " + computerWin);
+            compPossibleMoves.push(computerWin[0]);
             return computerWin[0];
         } else if(userWin.length == 1 && tickMatrix.indexOf(userWin[0]) < 0){ //computer wins
             console.log("user can win: " + userWin); 
-            return userWin[0];//user wins
-        } else if(computerWin.length == 2 && tickMatrix.indexOf(computerWin[0]) < 0){
-            
+            uPossibleMoves.push(userWin[0])
+;            return userWin[0];//user wins
+        } else if(computerWin.length == 2 && tickMatrix.indexOf(computerWin[0]) < 0){   
             backup.push(computerWin);
             console.log(backup); 
         }
-        
-		console.log(backup);
-        if(t == 7 && backup != null){
-                
+        if(t == 7 && backup != null){  
                 return backup[0][0];
-                
             }                
-       
-        console.log("This bounces logic!!"); 
-    		
-		
+
     function isNotInComputer(value){				
       return computerMoves.indexOf(value) < 0
     }     //is Not In end
@@ -135,7 +131,8 @@ function whoWin(){
     }     //is Not In end - UserMoves
     }//end of for loop
     
-    
+    console.log("Value of Possible: " + uPossibleMoves);
+    console.log("Value of Computer: " + compPossibleMoves);
     
 }//end of compWin	
 	
