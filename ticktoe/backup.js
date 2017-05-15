@@ -131,20 +131,6 @@ function canIWin(){
 	
 
 	
-	for(var n = 0; n< winningMoves.length; n++){
-		
-		var computerPingWin = winningMoves[n].filter(isNotInComputer);
-		var userPingWin = winningMoves[n].filter(isNotInUser);
-		
-		if(computerPingWin.length == 1 && tickMatrix.indexOf(compPossibleMoves[0]) <0){
-			//console.log("Value is Single: " + computerPingWin[0]);
-			compPossibleMoves.push(computerPingWin[0]);
-		}else if(userPingWin.length == 1 && tickMatrix.indexOf(userPingWin[0]) < 0){
-		//	console.log("Value for user To Win: " + compPossibleMoves[0]);
-			uPossibleMoves.push(userPingWin[0]);
-		}
-	}
-	
 	//console.log("User Possible Win Moves: " + uPossibleMoves);
 	//console.log("Computer Possible Win Moves: " + compPossibleMoves);
 	
