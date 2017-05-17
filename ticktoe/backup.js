@@ -125,10 +125,21 @@ function isNotInComputer(value){
 function isNotInUser(value){
        return userMoves.indexOf(value) < 0 
     }     //is Not In end - UserMoves	
-	
+    
+function haveIWon(value){
+    
+    for(var m = 0;m < winningMoves.length;m++){
+        
+        
+        
+    }
+    
+    
+}    
 
 function canIWin(){
-	
+	userMoves.filter()
+    
 
 	
 	//console.log("User Possible Win Moves: " + uPossibleMoves);
