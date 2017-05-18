@@ -70,9 +70,9 @@ function nextMoves(){
 			  
 	}else {
 		console.log("next step");
-		canIWin();
         var whatIsNext = whoWin();
         assignSelection(whatIsNext); 
+        haveIWon();
 	}
 }	//the computer selection
 	
@@ -126,9 +126,23 @@ function isNotInUser(value){
        return userMoves.indexOf(value) < 0 
     }     //is Not In end - UserMoves	
     
-function haveIWon(value){
+function haveIWon(){
     
     for(var m = 0;m < winningMoves.length;m++){
+        
+        var computerHasWon = winningMoves[m].filter(isNotInComputer);
+        var userHasWon = winningMoves[m].filter(isNotInUser);
+        
+        if(computerHasWon.length == 0){
+            
+            console.log("Computer Won");
+            
+        } else if(userHasWon.length == 0){
+            
+            console.log("User Won");
+            
+        }
+        
         
         
         
@@ -137,15 +151,6 @@ function haveIWon(value){
     
 }    
 
-function canIWin(){
-	userMoves.filter()
-    
-
-	
-	//console.log("User Possible Win Moves: " + uPossibleMoves);
-	//console.log("Computer Possible Win Moves: " + compPossibleMoves);
-	
-}//can I will End 	
 
 	
 	
