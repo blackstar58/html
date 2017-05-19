@@ -71,9 +71,10 @@ function nextMoves(){
 	}else {
 		console.log("next step");
         var whatIsNext = whoWin();
-        assignSelection(whatIsNext); 
-        haveIWon();
-	}
+        assignSelection(whatIsNext)
+        haveIWon()
+    
+    }
 }	//the computer selection
 	
 	
@@ -96,24 +97,21 @@ function whoWin(){
             backup.push(computerWin);
         }
     
-	console.log("Value of Possible: " + uPossibleMoves);
+/*	console.log("Value of Possible: " + uPossibleMoves);
     console.log("Value of Computer: " + compPossibleMoves);
-    console.log("Value of backup: " + backup);
+    console.log("Value of backup: " + backup); */
 		
 		if(compPossibleMoves.length >= 1 && t == 7){		
-			console.log("The Value of CompPossible: "+ compPossibleMoves);
+	//		console.log("The Value of CompPossible: "+ compPossibleMoves);
 			
 			return compPossibleMoves;
 		} else if (uPossibleMoves.length >= 1 && t == 7 ){
-			console.log("Ping")
 			return uPossibleMoves[0];	
 		}else if(t == 7) {
 			
-			console.log("In Side")
+		//	console.log("In Side")
 			return backup[0][0];
 		}
-		console.log("End of Ping")
-		
     }//end of for loop
 	
 
@@ -123,33 +121,31 @@ function isNotInComputer(value){
       return computerMoves.indexOf(value) < 0
     }     //is Not In end
 function isNotInUser(value){
-       return userMoves.indexOf(value) < 0 
+       return userMoves.indexOf(value) < 0
     }     //is Not In end - UserMoves	
     
 function haveIWon(){
     
+    computerMoves.sort(function(a, b) {
+  return a - b;
+});
+    console.log("User Moves in Have I won! " + userMoves);
+    console.log("Computer Moves in Have I won! " + computerMoves);
+   
     for(var m = 0;m < winningMoves.length;m++){
         
         var computerHasWon = winningMoves[m].filter(isNotInComputer);
+        console.log("computer has Won " + computerHasWon.length)
         var userHasWon = winningMoves[m].filter(isNotInUser);
-        
+        console.log("user has Won " + userHasWon.length)
         if(computerHasWon.length == 0){
-            
             console.log("Computer Won");
-            
         } else if(userHasWon.length == 0){
-            
             console.log("User Won");
-            
-        }
-        
-        
-        
-        
-    }
+        }//user has won
+    }//end of for loop
     
-    
-}    
+}    //end of have I Won
 
 
 	
