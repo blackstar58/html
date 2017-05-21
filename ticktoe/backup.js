@@ -52,6 +52,9 @@ function assignSelection(e){
         document.getElementById(e).innerHTML = computerSelection;
         tickMatrix.push(e);
 		computerMoves.push(e);
+	
+	console.log("!!!!!! - Value of Computer - !!!!");
+	console.log(computerMoves);
 }	
 	
 function nextMoves(){
@@ -123,21 +126,29 @@ function isNotInComputer(value){
 function isNotInUser(value){
        return userMoves.indexOf(value) < 0
     }     //is Not In end - UserMoves	
-    
+
+	
 function haveIWon(){
-    
-    computerMoves.sort(function(a, b) {
-  return a - b;
-});
-    console.log("User Moves in Have I won! " + userMoves);
-    console.log("Computer Moves in Have I won! " + computerMoves);
+    console.log("----------------- Start ---------------" )
+    	computerMoves.sort(function(a, b) {
+  		return a - b;
+	});
+	console.log("----------------- User Moves ---------------" )	
+    console.log(userMoves);
+	console.log("----------------- Computer Moves ---------------" )	
+	console.log(computerMoves);
    
     for(var m = 0;m < winningMoves.length;m++){
-        
+    
+		console.log("value of winning move m: " + winningMoves[m]);
+		
+		
+		
+		
         var computerHasWon = winningMoves[m].filter(isNotInComputer);
-        console.log("computer has Won " + computerHasWon.length)
+        console.log(computerHasWon)
         var userHasWon = winningMoves[m].filter(isNotInUser);
-        console.log("user has Won " + userHasWon.length)
+        console.log(userHasWon)
         if(computerHasWon.length == 0){
             console.log("Computer Won");
         } else if(userHasWon.length == 0){
