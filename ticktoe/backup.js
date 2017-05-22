@@ -24,6 +24,13 @@ $('#selectO').on("click",function(){
     $('#myModal').modal('hide'); 	
 	nextMoves();
 	})//end of select O
+
+$('#restart').on("click",function(){		
+    $('#compWinModel').modal('hide'); 	
+		clearScreen('tie');
+	})//end of restart
+	
+	
                
 var theParent = document.querySelector("#workArea");
   for (var i = 0; i < theParent.children.length; i++) {
@@ -38,23 +45,30 @@ function clickedElement(e){
 	nextMoves();//computer Move
 }	//end of clickElement Modifier
 
-function clearScreen(){
-$('#myModal').modal('show');	 
+function clearScreen(value){
+	
+if(value == 'tie'){
+	$('#myModal').modal('show');	 
 	for(var k=1;k <=9;k++){
            document.getElementById(k).innerHTML = "";
            tickMatrix = [];
 		   userMoves = [];
 		   computerMoves = [];
-        }  //end of reset for loop       
+        }  //end of reset for loop  
+} else if(value == 'comp'){
+	
+	$('#compWinModel').modal('show');
+	
+}	
+
 }//end of clear	
 	
 function assignSelection(e){
-        document.getElementById(e).innerHTML = computerSelection;
-        tickMatrix.push(e);
-		computerMoves.push(e);
-	
-	console.log("!!!!!! - Value of Computer - !!!!");
-	console.log(computerMoves);
+
+    document.getElementById(e).innerHTML = computerSelection;
+    tickMatrix.push(e);
+	computerMoves.push(e);
+
 }	
 	
 function nextMoves(){
@@ -67,16 +81,13 @@ function nextMoves(){
 		var max = 4;
 		var firstMove = Math.floor(Math.random() * (max - min))	+ min;
 		assignSelection(firstMove);
-		
 	} else if (tickMatrix.length >= 8) {		   
-			   clearScreen();
-			  
+			   clearScreen('tie');
 	}else {
 		console.log("next step");
         var whatIsNext = whoWin();
         assignSelection(whatIsNext)
         haveIWon()
-    
     }
 }	//the computer selection
 	
@@ -85,34 +96,34 @@ function whoWin(){
     var backup = [];
     var uPossibleMoves = [];
     var compPossibleMoves = [];
+	console.log(compPossibleMoves);
 	
     for(var t = 0; t < winningMoves.length;t++){
-		var computerWin = winningMoves[t].filter(isNotInComputer);
+	   var computerWin = winningMoves[t].filter(isNotInComputer);
        var userWin = winningMoves[t].filter(isNotInUser);
         
         if(computerWin.length == 1 && tickMatrix.indexOf(computerWin[0]) < 0){
-            compPossibleMoves.push(computerWin[0]);
-            //return computerWin[0];
+			console.log("CompPossibleMoves")
+			console.log(computerWin[0]);
+			var selection = (computerWin[0])
+            console.log("@@@@@@@@@ - selection - @@@@@")
+			console.log(selection);
+			compPossibleMoves.push(selection);
+			console.log(compPossibleMoves);
+
         } else if(userWin.length == 1 && tickMatrix.indexOf(userWin[0]) < 0){ //computer wins
             uPossibleMoves.push(userWin[0])
-;           // return userWin[0];//user wins
         } else if(computerWin.length == 2 && tickMatrix.indexOf(computerWin[0]) < 0 ){   
             backup.push(computerWin);
         }
     
-/*	console.log("Value of Possible: " + uPossibleMoves);
-    console.log("Value of Computer: " + compPossibleMoves);
-    console.log("Value of backup: " + backup); */
 		
 		if(compPossibleMoves.length >= 1 && t == 7){		
-	//		console.log("The Value of CompPossible: "+ compPossibleMoves);
-			
-			return compPossibleMoves;
+			return compPossibleMoves[0];
 		} else if (uPossibleMoves.length >= 1 && t == 7 ){
 			return uPossibleMoves[0];	
 		}else if(t == 7) {
-			
-		//	console.log("In Side")
+
 			return backup[0][0];
 		}
     }//end of for loop
@@ -129,30 +140,18 @@ function isNotInUser(value){
 
 	
 function haveIWon(){
-    console.log("----------------- Start ---------------" )
-    	computerMoves.sort(function(a, b) {
-  		return a - b;
-	});
-	console.log("----------------- User Moves ---------------" )	
-    console.log(userMoves);
-	console.log("----------------- Computer Moves ---------------" )	
-	console.log(computerMoves);
    
     for(var m = 0;m < winningMoves.length;m++){
     
 		console.log("value of winning move m: " + winningMoves[m]);
-		
-		
-		
-		
         var computerHasWon = winningMoves[m].filter(isNotInComputer);
-        console.log(computerHasWon)
+        console.log(computerHasWon[0])
         var userHasWon = winningMoves[m].filter(isNotInUser);
         console.log(userHasWon)
         if(computerHasWon.length == 0){
-            console.log("Computer Won");
+            clearScreen('comp');
         } else if(userHasWon.length == 0){
-            console.log("User Won");
+            clearScreen();
         }//user has won
     }//end of for loop
     
