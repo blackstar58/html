@@ -29,6 +29,9 @@ $('#restart').on("click",function(){
     $('#compWinModel').modal('hide'); 	
 		clearScreen('tie');
 	})//end of restart
+
+
+	
 	
 	
                
