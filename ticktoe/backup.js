@@ -30,10 +30,6 @@ $('#restart').on("click",function(){
 		clearScreen('tie');
 	})//end of restart
 
-
-	
-	
-	
                
 var theParent = document.querySelector("#workArea");
   for (var i = 0; i < theParent.children.length; i++) {
@@ -41,12 +37,17 @@ var theParent = document.querySelector("#workArea");
     childElement.addEventListener('click', clickedElement, false);
 }//end of click listener
 function clickedElement(e){
-	var value = parseInt(e.srcElement.id);
+     var lock = parseInt(e.path[0].id);
+     if(tickMatrix.indexOf(lock) < 0){
+    var value = parseInt(e.srcElement.id);
 	tickMatrix.push(value);
 	userMoves.push(value);
-	e.path[0].innerHTML = userSelection; 
-	nextMoves();//computer Move
-}	//end of clickElement Modifier
+	e.path[0].innerHTML = userSelection;     
+    nextMoves();//computer Move
+        
+    }
+    
+  }	//end of clickElement Modifier
 
 function clearScreen(value){
 	
@@ -62,6 +63,10 @@ if(value == 'tie'){
 	
 	$('#compWinModel').modal('show');
 	
+} else if (value=='nomoves'){
+    $('#notice').text('Its a Tie!!');
+    $('#compWinModel').modal('show');
+    
 }	
 
 }//end of clear	
@@ -75,6 +80,7 @@ function assignSelection(e){
 }	
 	
 function nextMoves(){
+    
 	if(userMoves.length == 0){
 		assignSelection(5);	
 	} else if (userMoves[0] !=5 && computerMoves.length == 0){
@@ -84,10 +90,9 @@ function nextMoves(){
 		var max = 4;
 		var firstMove = Math.floor(Math.random() * (max - min))	+ min;
 		assignSelection(firstMove);
-	} else if (tickMatrix.length >= 8) {		   
-			   clearScreen('tie');
+	} else if (tickMatrix.length >= 8) {	
+			   clearScreen('nomoves');
 	}else {
-		console.log("next step");
         var whatIsNext = whoWin();
         assignSelection(whatIsNext)
         haveIWon()
@@ -99,39 +104,27 @@ function whoWin(){
     var backup = [];
     var uPossibleMoves = [];
     var compPossibleMoves = [];
-	console.log(compPossibleMoves);
-	
     for(var t = 0; t < winningMoves.length;t++){
 	   var computerWin = winningMoves[t].filter(isNotInComputer);
        var userWin = winningMoves[t].filter(isNotInUser);
         
         if(computerWin.length == 1 && tickMatrix.indexOf(computerWin[0]) < 0){
-			console.log("CompPossibleMoves")
-			console.log(computerWin[0]);
 			var selection = (computerWin[0])
-            console.log("@@@@@@@@@ - selection - @@@@@")
-			console.log(selection);
 			compPossibleMoves.push(selection);
-			console.log(compPossibleMoves);
-
         } else if(userWin.length == 1 && tickMatrix.indexOf(userWin[0]) < 0){ //computer wins
             uPossibleMoves.push(userWin[0])
         } else if(computerWin.length == 2 && tickMatrix.indexOf(computerWin[0]) < 0 ){   
             backup.push(computerWin);
         }
     
-		
-		if(compPossibleMoves.length >= 1 && t == 7){		
+	   if(compPossibleMoves.length >= 1 && t == 7){		
 			return compPossibleMoves[0];
 		} else if (uPossibleMoves.length >= 1 && t == 7 ){
 			return uPossibleMoves[0];	
 		}else if(t == 7) {
-
 			return backup[0][0];
 		}
     }//end of for loop
-	
-
 }//end of compWin	
 
 function isNotInComputer(value){				
@@ -141,31 +134,15 @@ function isNotInUser(value){
        return userMoves.indexOf(value) < 0
     }     //is Not In end - UserMoves	
 
-	
 function haveIWon(){
-   
-    for(var m = 0;m < winningMoves.length;m++){
-    
-		console.log("value of winning move m: " + winningMoves[m]);
+    for(var m = 0;m < winningMoves.length;m++){    
         var computerHasWon = winningMoves[m].filter(isNotInComputer);
-        console.log(computerHasWon[0])
         var userHasWon = winningMoves[m].filter(isNotInUser);
-        console.log(userHasWon)
         if(computerHasWon.length == 0){
             clearScreen('comp');
         } else if(userHasWon.length == 0){
             clearScreen();
         }//user has won
     }//end of for loop
-    
 }    //end of have I Won
-
-
-	
-	
-	
-	
-	
-	
-	
 })//end of document ready
