@@ -1,6 +1,5 @@
-<html>
-<title>Tick-Tac-Toe</title>
 <style>
+	
 .modal {
     display: none; 
 	position: fixed; 
@@ -35,24 +34,26 @@
     font-size: 28px;
     font-weight: bold;
 }
-    .div {
-        
-        border-style:solid;
-        border-color:blue;
-    }       
+         
 .close:hover,
 .close:focus {
     color: #000;
     text-decoration: none;
     cursor: pointer;
-}	
-	
+}		
+body {
+  margin: 40px;
+}
+
 .wrapper {
-  display: grid;
-  grid-template-columns: 100px 100px 100px;
+  	display: grid;
+	
+  	grid-template-columns: 75px 75px 75px;
+  grid-template-rows: 50px 50px 50px;
   grid-gap: 10px;
   background-color: #fff;
   color: #444;
+	text-align: center;
 }
 
 .box {
@@ -62,33 +63,16 @@
   padding: 20px;
   font-size: 150%;
 }
-
-.wrapper {
-  display: grid;
-  grid-template-columns: 50px 50px 50px;
-  grid-gap: 5px;
-  background-color: #fff;
-  color: #444;
-}
-
-.box {
-  background-color: #444;
-  color: #fff;
-  border-radius: 5px;
-  padding: 20px;
-  font-size: 300%;
-  align-content: center;	
-}
+	
 </style>
-<!-- <script src ="file:\\\Users\Patt3rnlogic\Documents\html\html\ticktoe\tick.js"></script> -->
-<!--<link href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="https://bootswatch.com/slate/bootstrap.min.css" rel="stylesheet"> -->
+
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	
-<script src ="file:\\\Users\Patt3rnlogic\Documents\html\html\ticktoe\tick.js"></script>
-<!--<script src="C:\Users\as7639\Documents\GitHub\html\ticktoe\tick.js"> </script> -->
+<!--<script src ="file:\\\Users\Patt3rnlogic\Documents\html\html\ticktoe\backup.js"></script> -->
+<script src ="file:\\\Users\as7639\github\html\ticktoe\backup.js"></script>
 
-	
+
+
 <body>
 <div id="myModal" class="modal">
   <div class="modal-content">
@@ -99,38 +83,41 @@
   </div>
 	  </div>
 </div>	
-    <div id = 'theGrid' align = 'center' class='container '>
-        <p><b><h1> Tick Tac Toe</h1></b></p>
-    <div id='workArea' class='div'>   
-    <div id='rowOne' class='row'>
-    <div class='col-lg-12'>
-		<div class="wrapper">
-        <button class='btn box 1' id="1"></button>
-	    <button class='btn box 2' id="2"></button>
-        <button class='btn box 3' id="3"></button>
-        </div>
+	
+<div id="compWinModel" class="modal">
+  <div class="modal-content">
+      <p id='notice' align='center'>Computer Has Won !! Try Again</p>
+	  <div align='center'>
+	  <button class='btn' id="restart">Restart</button>
+  </div>
+	  </div>
+</div>		
+
+    
+
+    
+<div class="container">
+	<div class = "row">
+	<div class = "col-md-4">
 		</div>
-    </div><!-- end of row one -->
-        <div id='rowTwo' class='row'>
-    <div class='col-lg-12' >
-		<div class = 'wrapper'>
-        <button class='btn box 4' id="4"></button>
-	    <button class='btn box 5' id="5"></button>
-        <button class='btn box 6' id="6"></button>
-        </div>
+		<div class = "col-md-4">
+			<p align='center'><b><h1> Tick Tac Toe</h1></b></p>
+<div class="wrapper" id='workArea'>
+  <div id="1" class="box a"></div>
+  <div id="2" class="box b"></div>
+  <div id="3" class="box c"></div>
+  <div id="4" class="box d"></div>
+  <div id="5" class="box e"></div>
+  <div id="6" class="box f"></div>
+  <div id="7" class="box g"></div>
+  <div id="8" class="box h"></div>
+  <div id="9" class="box i"></div>	
+	</div>
+			</div>
+		<div class='col-md-4'>
+        <p id = 'warning' align='center'><b><h1> </h1></b></p>
+
 		</div>
-    </div><!-- end of row two -->
-        <div id='rowThree' class='row'>
-    <div class='col-lg-12'>
-		<div class='wrapper'>
-        <button class='btn box 7' id="7"></button>
-	    <button class='btn box 8' id="8"></button>
-        <button class='btn box 9' id="9"></button>
-        </div>
-		</div>
-    </div><!-- end of row three -->    
-        </div> <!-- end of allrow -->
-		
-    </div><!-- end of container -->
-</body>
-</html>
+</div>
+	</div>
+	</body>
