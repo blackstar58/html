@@ -5,66 +5,54 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
 <script src ="file:\\\Users\as7639\github\html\simon\simon.js"></script>
-<link href="file:\\\Users\as7639\github\html\simon\simon.css" rel='stylesheet'>
 
 <style>
-/* The switch - the box around the slider */
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 60px;
-  height: 34px;
+
+  .onoffswitch {
+    position: relative; width: 60px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
-
-/* Hide default HTML checkbox */
-.switch input {display:none;}
-
-/* The slider */
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  -webkit-transition: .4s;
-  transition: .4s;
+.onoffswitch-checkbox {
+    display: none;
 }
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 26px;
-  width: 26px;
-  left: 4px;
-  bottom: 4px;
-  background-color: white;
-  -webkit-transition: .4s;
-  transition: .4s;
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 10px;
 }
-
-input:checked + .slider {
-  background-color: #2196F3;
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
 }
-
-input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
+    font-size: 10px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
 }
-
-input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+.onoffswitch-inner:before {
+    content: "ON";
+    padding-left: 5px;
+    background-color: #34A7C1; color: #FFFFFF;
+    align-content: left;
 }
-
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
+.onoffswitch-inner:after {
+    content: "OFF";
+    padding-right: 5px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
 }
-
-.slider.round:before {
-  border-radius: 50%;
+.onoffswitch-switch {
+    display: block; width: 12px; margin: 6px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 30px;
+    border: 2px solid #999999; border-radius: 20px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
 }
     html {
   box-sizing: border-box;
@@ -77,14 +65,14 @@ body {
   margin: 40px;
 }
 .wrapper {
-  margin: 0 0 20px 0;
+  margin: 10px 10px 10px 10px;
   width: 600px;
-  height: 500px;
+  height: 600px;
   border: 2px solid #CCC;
   display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(5, 100px);
-  grid-template-rows: repeat(5,75px);
+  grid-gap: 5px;
+  grid-template-columns: repeat(5,100px);
+  grid-template-rows: repeat(6,75px);
   justify-content: center;
   align-content: end;
     }
@@ -92,52 +80,107 @@ body {
   background-color: #444;
   color: #fff;
   border-radius: 5px;
-  padding: 20px;
+  padding: 5px;
   font-size: 150%;
-        align-content: center;
+  align-content: center;
     }    
  .a {
         grid-column: 1 / 3 ;
-        grid-row: 1 / 3;
-        background-color: red;
+        grid-row: 1 / 4;
+        background-color: green;
 
     }
     .b {
-        grid-column: 3;
-        grid-row: 1 / 3;
+        grid-column: 3 / 4;
+        grid-row: 1 / 4;
+        align-content: center;
     }
     .c {
         grid-column: 4 / 6 ;
-        grid-row : 1 / 3; 
-        background-color: green;
+        grid-row : 1 / 4; 
+        background-color: red;
     }
 
-
-    .e {
-        grid-column: 2;
-        grid-row: 4 / 6;
+    .d {
+        grid-column: 1 / 3;
+        grid-row: 4 / 7;
+        background-color: lightgoldenrodyellow;  
     }
     
-
-       .h {
-        grid-column: 1 / 3;
-        grid-row: 4 / 6;
-        background-color: yellow;
+       .e {
+        grid-column: 3 / 4;
+        grid-row: 4 / 7;
     }
-       .i {
-        grid-column: 3;
-        grid-row: 4 / 6;
-    }
-       .j {
+       .f {
         grid-column: 4 / 6;
-        grid-row: 4 / 6;
+        grid-row: 4 / 7;
         background-color: blue;
     }
-    .k {
+    
+    .h {
         grid-column: 1 / 6;
-        grid-row:6;        
+        grid-row: 7;
+        
     }
-	
+ 
+.btnStrict {
+  background: #34d947;
+  background-image: -webkit-linear-gradient(top, #34d947, #34d947);
+  background-image: -moz-linear-gradient(top, #34d947, #34d947);
+  background-image: -ms-linear-gradient(top, #34d947, #34d947);
+  background-image: -o-linear-gradient(top, #34d947, #34d947);
+  background-image: linear-gradient(to bottom, #34d947, #34d947);
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  font-family: Courier New;
+  color: #ffffff;
+  font-size: 10px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btnStrict:hover {
+  background: #fc3c3c;
+  background-image: -webkit-linear-gradient(top, #fc3c3c, #d93434);
+  background-image: -moz-linear-gradient(top, #fc3c3c, #d93434);
+  background-image: -ms-linear-gradient(top, #fc3c3c, #d93434);
+  background-image: -o-linear-gradient(top, #fc3c3c, #d93434);
+  background-image: linear-gradient(to bottom, #fc3c3c, #d93434);
+  text-decoration: none;
+}
+    
+  .btn {
+  background: #d93434;
+  background-image: -webkit-linear-gradient(top, #d93434, #b82b2b);
+  background-image: -moz-linear-gradient(top, #d93434, #b82b2b);
+  background-image: -ms-linear-gradient(top, #d93434, #b82b2b);
+  background-image: -o-linear-gradient(top, #d93434, #b82b2b);
+  background-image: linear-gradient(to bottom, #d93434, #b82b2b);
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0px;
+  font-family: Georgia;
+  color: #ffffff;
+  font-size: 10px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+        
+    
+    
+    
+    
 </style>
 </header>
 <div class='container'>
@@ -145,29 +188,28 @@ body {
 	<div align='center'>
 		<h1>Simon Says!!</h1>   
 <div class="wrapper">
-  <div class="box a ">A</div>
-  <div class="box b">Count</div>
-  <div class="box c">C</div>
-  <div class="box e"></div>
-  <div class="box h">H</div>
-  <div class="box i">    
-      <label>0</label>
-      <label>0</label>
-
+  <div id='a' class="box a "></div>
+  <div id='b' class="box b">Count</div>
+  <div id='c' class="box c"></div>
+  <div id='d' class="box d"></div>
+  <div id='e' class="box e">      
+      <label>00</label>
+</div>
+  <div id='f' class="box f">    
+    
     </div>
-  <div class="box j">J</div>
-  <div align='center' class="box k">
-      <label class="switch">
-  <input type="checkbox">
-  <div class="slider"></div>
-</label>
-    <button>Start</button>
- <button>Strict</button>
-
-      
-    
-    
-    
+  <div id='h' class="box h">
+<div id='theDiv' >
+    <div class="onoffswitch">
+    <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+    <label class="onoffswitch-label" for="myonoffswitch">
+        <span class="onoffswitch-inner"></span>
+        <span class="onoffswitch-switch"></span>
+    </label>
+</div>
+    <button class='btn'>Start</button>
+    <button class='btnStrict'>Strict</button>
+      </div>
     </div>
     </div>
 
