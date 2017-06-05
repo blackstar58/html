@@ -4,8 +4,11 @@
  <link href="https://bootswatch.com/slate/bootstrap.min.css" rel="stylesheet">
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> 
-<script src ="file:\\\Users\as7639\github\html\simon\simon.js"></script>
-
+<!--<script src ="file:\\\Users\as7639\github\html\simon\simon.js"></script> -->
+<script src ="file:\\\Users\Patt3rnlogic\Documents\html\html\simon\simon.js"></script>
+	
+	
+	
 <style>
 
   .onoffswitch {
@@ -62,13 +65,13 @@
 }
     
 body {
-  margin: 40px;
+  margin: 10px;
 }
 .wrapper {
   margin: 10px 10px 10px 10px;
   width: 600px;
   height: 600px;
-  border: 2px solid #CCC;
+  border: 2px;
   display: grid;
   grid-gap: 5px;
   grid-template-columns: repeat(5,100px);
@@ -98,7 +101,7 @@ body {
     .c {
         grid-column: 4 / 6 ;
         grid-row : 1 / 4; 
-        background-color: red;
+        background-color: white;
     }
 
     .d {
@@ -176,26 +179,39 @@ body {
   background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
   text-decoration: none;
 }
+	
+    .red-btn {
+            background: rgb(202, 60, 60); /* this is a maroon */
+        }	
+	
 </style>
 </header>
 <div class='container'>
-	
-	
 		<h1>Simon Says!!</h1>           
 <div id='simonClick'>
 <div class="wrapper">
-  <div id='1' class="box a "></div>
+  <div class="box a ">
+	<button id='1' class='btn'>Green</button>
+	</div>
   <div align='bottom' id='b' class="box b">Count</div>
-  <div id='2' class="box c"></div>
-  <div id='3' class="box d"></div>
+  <div class="box c">
+	<button id ='2' class='red-btn '>Red</button>
+	  
+	</div>
+  <div class="box d">
+		<button id ='3' class='btn'>Yellow</button>
+
+	
+	</div>
   <div align='center' id='countNumber' class="box e">      
       <label>00</label>
 </div>
-  <div id='4' class="box f">    
-    
+  <div class="box f">    
+    	<button id ='4' class='btn w3-blue'>Blue</button>
+
     </div>
-  <div id='h' class="box h">
-    </div>
+<div>
+	</div>
     </div>
         </div>
       
