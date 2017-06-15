@@ -72,6 +72,7 @@ function clearAll(){
 	
 	
     
+    
 function randomNumber(){
 	
     var min = 1;
@@ -97,6 +98,9 @@ function play(value){
 }
 
 function validation(){
+    
+    for(var j=0;j <=)
+    
     
     
 }    
