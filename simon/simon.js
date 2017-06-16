@@ -99,13 +99,11 @@ function play(value){
 
 function validation(){
     
-    for(var j=0;j <=)
     
     
     
 }    
     
-    
-    
+
     
 }) //end of document
