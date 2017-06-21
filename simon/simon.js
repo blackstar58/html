@@ -17,12 +17,10 @@ var yellowSound = new Audio ("https://s3.amazonaws.com/freecodecamp/simonSound4.
 	
 	
 $('#start').on("click",function(){
-	
 	if(onOrOff == true){
 	clearAll();
     console.log("Start Enabled"); 
-    randomNumber();
-	
+    randomNumber(1);	
 	}
 		})//end of start
     
@@ -60,19 +58,35 @@ if(onOrOff == true){
     }
     
   }	//end of clickElement Modifier
-    
+ 
+$('#countNumber').unbind("click");
+$('#b').unbind("click");
  
 function clearAll(){
 	userSelection = [];
 	simonPattern = [];
 	isItStrict = null;
+	 $("#countNumber").text('0');
+	
 	console.log("All Clear");
 	
 }//clear all elements	
 	
 	
+//var timer = setInterval(randomNumber,1000);	
+	
     
-function randomNumber(){
+function randomNumber(num){
+	
+	for(var d = 0;d < num;d++){
+		
+		console.log(d);
+		
+		
+		
+	}
+	
+	
 	
     var min = 1;
 		var max = 4;
@@ -81,6 +95,9 @@ function randomNumber(){
 	play(firstMove);
     console.log(firstMove);
     console.log(simonPattern);
+	count++;
+	console.log("value of Count: "  + count);
+	 $("#countNumber").text(count);
 } //end of random number
     
 function play(value){
@@ -99,6 +116,7 @@ function play(value){
 function validation(){
     
     
+	
 }    
     
     
