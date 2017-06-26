@@ -189,7 +189,7 @@ body {
   font-family: Georgia;
   color: #ffffff;
   font-size: 20px;
-  background: #44ad21;
+  background: darkgreen;
   padding: 40px 40px 40px 40px;
   border: solid #1f628d 2px;
   text-decoration: none;
@@ -207,14 +207,14 @@ body {
   font-family: Georgia;
   color: #ffffff;
   font-size: 20px;
-  background: #db1818;
+  background: darkred;
   padding: 40px 40px 40px 40px;
   border: solid #1f628d 2px;
   text-decoration: none;
 }
 
 .btn_red:hover {
-  background: #cc688e;
+  background: #E8A5A5;
   text-decoration: none;
 }
 
@@ -225,16 +225,17 @@ body {
   font-family: Georgia;
   color: #ffffff;
   font-size: 20px;
-  background: #f2fa03;
+  background: #FCC519;
   padding: 40px 40px 40px 40px;
   border: solid #1f628d 2px;
   text-decoration: none;
 }
 
 .btn_yellow:hover {
-  background: #dbde1d;
+  background: #F3FEA5;
   text-decoration: none;
 }
+
 
 .btn_blue {
   -webkit-border-radius: 0;
@@ -250,12 +251,12 @@ body {
 }
 
 .btn_blue:hover {
-  background: #5568bd;
+  background: #A5DEFE;
   text-decoration: none;
 }
 
 .white_back {
-	background-color: white;
+	background-color: black;
 }
 
 .font_color {

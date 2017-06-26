@@ -67,7 +67,10 @@ function clearAll(){
 	simonPattern = [];
 	isItStrict = null;
 	 $("#countNumber").text('0');
-	
+	$('#1').css('background','#006400');
+	$('#2').css('background','#8b0000');
+	$('#3').css('background','#FCC519');
+	$('#4').css('background','#052efa');
 	console.log("All Clear");
 	
 }//clear all elements	
@@ -78,18 +81,14 @@ function clearAll(){
     
 function randomNumber(num){
 	
-	for(var d = 0;d < num;d++){
-		
+	for(var d = 0;d < num;d++){	
 		console.log(d);
-		
-		
-		
 	}
 	
 	
 	
     var min = 1;
-		var max = 4;
+		var max = 5;
 		var firstMove = Math.floor(Math.random() * (max - min))	+ min;
     simonPattern.push(firstMove);
 	play(firstMove);
@@ -100,16 +99,27 @@ function randomNumber(num){
 	 $("#countNumber").text(count);
 } //end of random number
     
-function play(value){
+
+setInterval(,2000);	
+	
+	
+	
+function play(arr){
+	
+	for(var t = 0;t < simonPattern.;)
 	
 	if(value == 1){	
 		greenSound.play();
+		$('#1').css('background','#34d955');
 	} else if(value == 2){
 		redSound.play();
+		$('#2').css('background','#cc688e');
 	} else if(value == 3){
 		yellowSound.play();
+		$('#3').css('background','#F3FEA5');
 	}else if(value == 4){
 		blueSound.play()
+		$('#4').css('background','#A5DEFE');
 	}
 }
 
