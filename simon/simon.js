@@ -33,7 +33,8 @@ $('#start').on("click",function(){
 	if(onOrOff == true){
 	clearAll();
     console.log("Start Enabled"); 
-    randomNumber(1);	
+    randomNumber(1);
+    count++;    
 	}
 		})//end of start
     
@@ -56,25 +57,26 @@ var theParent = document.querySelector("#simonClick");
     var childElement = theParent.children[i];
     childElement.addEventListener('click', clickedElement, false);
 }//end of click listener
+    
 function clickedElement(e){
 if(onOrOff == true){
-         console.log(e.path[0].id);
+    console.log(e.path[0].id);
     var userClick = e.path[0].id;
 	play(userClick);
     userSelection.push(userClick);
-    console.log(userSelection);
-        
+    console.log(userSelection);    
     }
-    
   }	//end of clickElement Modifier
  
 $('#countNumber').unbind("click");
 $('#b').unbind("click");
  
+    
 function clearAll(){
 	userSelection = [];
 	simonPattern = [];
 	isItStrict = null;
+    count=0;
     $("#countNumber").text('0');
 	$('#1').css('background','#006400');
 	$('#2').css('background','#8b0000');
@@ -89,6 +91,7 @@ function clearAll(){
 	
 
     
+    
 
 function randomNumber(num){
     var min = 1;
@@ -96,6 +99,7 @@ function randomNumber(num){
 	var firstMove = Math.floor(Math.random() * (max - min))	+ min;
     simonPattern.push(firstMove);
 	play(firstMove);
+    play(simonPattern);
     console.log(firstMove);
     console.log(simonPattern);
 	count++;
@@ -104,20 +108,25 @@ function randomNumber(num){
 } //end of random number
     
 	
-function play(value){
-	if(value == 1){	
+function play(arr){
+    console.log("------");
+    console.log(arr);
+    console.log("------")
+    for(var j=0;j < simonPattern.length;j++){        
+    if(simonPattern[j] == 1){	
 		greenSound.play();
 		$('#1').css('background','#34d955');
-	} else if(value == 2){
+	} else if(simonPattern[j] == 2){
 		redSound.play();
 		$('#2').css('background','#cc688e');
-	} else if(value == 3){
+	} else if(simonPattern[j] == 3){
 		yellowSound.play();
 		$('#3').css('background','#F3FEA5');
-	}else if(value == 4){
+	}else if(simonPattern[j] == 4){
 		blueSound.play()
 		$('#4').css('background','#A5DEFE');
 	}
+    }//end of for loop
 }
 
     
