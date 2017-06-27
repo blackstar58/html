@@ -13,8 +13,21 @@ var blueSound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3
 var greenSound = new Audio ("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3");
 var yellowSound = new Audio ("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3");	
 	
+$('#strict').on("click",function(){
+    if(isItStrict == null){
+        isItStrict = 1;
+        console.log(isItStrict);
+    	$('#strict').css('background','#fc3c3c');
+    } else if (isItStrict == 1){
+        isItStrict = null;
+        console.log(isItStrict);
+        $('#strict').css('background','#34d947');
+    }
+}) //end of strict 
+    
 	
-	
+    
+    
 	
 $('#start').on("click",function(){
 	if(onOrOff == true){
@@ -24,17 +37,13 @@ $('#start').on("click",function(){
 	}
 		})//end of start
     
-$('#strict').on("click",function(){ 
-    isItStrict = true;
-      console.log(isItStrict);
-  })//end of Strict
 
 $('#myonoffswitch').on("click",function(){
     if(onOrOff == false){
          onOrOff = true;
  		clearAll();
-    console.log("MMMMMM");
-    console.log(onOrOff);  
+        console.log("MMMMMM");
+        console.log(onOrOff);  
     } else if(onOrOff == true){
         onOrOff = false;
         console.log(onOrOff);
@@ -66,7 +75,7 @@ function clearAll(){
 	userSelection = [];
 	simonPattern = [];
 	isItStrict = null;
-	 $("#countNumber").text('0');
+    $("#countNumber").text('0');
 	$('#1').css('background','#006400');
 	$('#2').css('background','#8b0000');
 	$('#3').css('background','#FCC519');
@@ -78,41 +87,24 @@ function clearAll(){
 	
 //var timer = setInterval(randomNumber,1000);	
 	
+
     
-<<<<<<< HEAD
-    
-function randomNumber(){
-=======
+
 function randomNumber(num){
-	
-	for(var d = 0;d < num;d++){	
-		console.log(d);
-	}
-	
-	
->>>>>>> da9ddbeb813e8c72aa8c5d6483bc276630b8f642
-	
     var min = 1;
-		var max = 5;
-		var firstMove = Math.floor(Math.random() * (max - min))	+ min;
+	var max = 5;
+	var firstMove = Math.floor(Math.random() * (max - min))	+ min;
     simonPattern.push(firstMove);
 	play(firstMove);
     console.log(firstMove);
     console.log(simonPattern);
 	count++;
 	console.log("value of Count: "  + count);
-	 $("#countNumber").text(count);
+    $("#countNumber").text(count);
 } //end of random number
     
-
-setInterval(,2000);	
 	
-	
-	
-function play(arr){
-	
-	for(var t = 0;t < simonPattern.;)
-	
+function play(value){
 	if(value == 1){	
 		greenSound.play();
 		$('#1').css('background','#34d955');
@@ -128,17 +120,7 @@ function play(arr){
 	}
 }
 
-function validation(){
     
-    
-<<<<<<< HEAD
-=======
-	
-}    
->>>>>>> da9ddbeb813e8c72aa8c5d6483bc276630b8f642
-    
-    
-}    
     
 
     
