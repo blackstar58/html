@@ -26,13 +26,9 @@ $('#strict').on("click",function(){
 }) //end of strict 
     
 	
-    
-    
-	
 $('#start').on("click",function(){
 	if(onOrOff == true){
 	clearAll();
-    console.log("Start Enabled"); 
     randomNumber(1);
     count++;    
 	}
@@ -43,11 +39,8 @@ $('#myonoffswitch').on("click",function(){
     if(onOrOff == false){
          onOrOff = true;
  		clearAll();
-        console.log("MMMMMM");
-        console.log(onOrOff);  
     } else if(onOrOff == true){
         onOrOff = false;
-        console.log(onOrOff);
     }
     
 }) //On or Off switch   
@@ -60,7 +53,6 @@ var theParent = document.querySelector("#simonClick");
     
 function clickedElement(e){
 if(onOrOff == true){
-    console.log(e.path[0].id);
     var userClick = e.path[0].id;
 	play(userClick);
     userSelection.push(userClick);
@@ -82,40 +74,44 @@ function clearAll(){
 	$('#2').css('background','#8b0000');
 	$('#3').css('background','#FCC519');
 	$('#4').css('background','#052efa');
-	console.log("All Clear");
-	
 }//clear all elements	
 	
 	
 //var timer = setInterval(randomNumber,1000);	
 	
-
-    
+setInterval(play(simonPattern),2000);
     
 
 function randomNumber(num){
-    var min = 1;
+	
+	var k = 0;
+	while(k < num){
+		var min = 1;
 	var max = 5;
 	var firstMove = Math.floor(Math.random() * (max - min))	+ min;
     simonPattern.push(firstMove);
 	play(firstMove);
     play(simonPattern);
-    console.log(firstMove);
-    console.log(simonPattern);
 	count++;
 	console.log("value of Count: "  + count);
-    $("#countNumber").text(count);
+    $("#countNumber").text(count);	
+	k++;	
+	}	
 } //end of random number
     
 	
 function play(arr){
-    console.log("------");
-    console.log(arr);
-    console.log("------")
-    for(var j=0;j < simonPattern.length;j++){        
-    if(simonPattern[j] == 1){	
+      for(var j=0;j < simonPattern.length;j++){        
+    if(simonPattern[j] == 1){
 		greenSound.play();
-		$('#1').css('background','#34d955');
+		//$('#1').mouseenter();
+		$('#1').mouseleave();
+		
+//			greenSound.play();
+//		$('#1').css('background','#34d955');	
+	//	greenSound.play();
+	//	$('#1').css('background','#34d955');
+		
 	} else if(simonPattern[j] == 2){
 		redSound.play();
 		$('#2').css('background','#cc688e');
@@ -130,7 +126,8 @@ function play(arr){
 }
 
     
-    
+
+	
 
     
 }) //end of document
