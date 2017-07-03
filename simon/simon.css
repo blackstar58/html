@@ -265,3 +265,12 @@ body {
 	align-content: bottom;
 	text-align: center;
 }
+
+.clickable{
+  pointer-events : auto;
+  cursor:pointer;
+}
+
+.unclickable{
+  pointer-events:none;
+}

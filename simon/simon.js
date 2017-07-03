@@ -79,9 +79,7 @@ function clearAll(){
 	
 //var timer = setInterval(randomNumber,1000);	
 	
-setInterval(play(simonPattern),2000);
     
-
 function randomNumber(num){
 	
 	var k = 0;
@@ -105,7 +103,7 @@ function play(arr){
     if(simonPattern[j] == 1){
 		greenSound.play();
 		//$('#1').mouseenter();
-		$('#1').mouseleave();
+         $('#1').removeClass('clickable').addClass('unclickable');
 		
 //			greenSound.play();
 //		$('#1').css('background','#34d955');	
