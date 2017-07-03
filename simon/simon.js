@@ -103,7 +103,7 @@ function play(arr){
     if(simonPattern[j] == 1){
 		greenSound.play();
 		//$('#1').mouseenter();
-         $('#1').removeClass('clickable').addClass('unclickable');
+         $('#1').mouseover();
 		
 //			greenSound.play();
 //		$('#1').css('background','#34d955');	
