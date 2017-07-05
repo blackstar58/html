@@ -54,6 +54,7 @@ var theParent = document.querySelector("#simonClick");
 function clickedElement(e){
 if(onOrOff == true){
     var userClick = e.path[0].id;
+    console.log("Value of User Click: " + userClick)
 	play(userClick);
     userSelection.push(userClick);
     console.log(userSelection);    
@@ -101,42 +102,20 @@ function randomNumber(num){
 function play(arr){
       for(var j=0;j < simonPattern.length;j++){        
     if(simonPattern[j] == 1){
-<<<<<<< HEAD
-		greenSound.play();
-		//$('#1').mouseenter();
-         $('#1').mouseover();
-		
-//			greenSound.play();
-//		$('#1').css('background','#34d955');	
-	//	greenSound.play();
-	//	$('#1').css('background','#34d955');
-=======
-		//greenSound.play();
-		console.log("Button 1");
-		change('#006400','#34d955','1000','1000','#1');
->>>>>>> 439231752df9dab99c3175ed6bcb040e3101f97c
-		
+		change('#006400','#34d955','1000','500','#1');		
 	} else if(simonPattern[j] == 2){
-		//redSound.play();
-		console.log("Button 2");
-		change('#8B0000','#E8A5A5','1000','1000','#2');
+		change('#8B0000','#E8A5A5','1000','500','#2');
 	} else if(simonPattern[j] == 3){
-		console.log("Button 3");
-		//yellowSound.play();
-		change('#FCC519','#F3FEA5','1000','1000','#3');
+		change('#FCC519','#F3FEA5','1000','500','#3');
 	}else if(simonPattern[j] == 4){
-		console.log("Button 4");
-		//blueSound.play()
-		change('#052efa','#A5DEFE','1000','1000','#4');
+		change('#052efa','#A5DEFE','1000','500','#4');
 	}
     }//end of for loop
-}
+} //end of play
 
 function change(color1, color2,c1,c2,button){
-	console.log("Inside Start of function");
  var timer = setInterval(function first_color() {
 	$(button).css('background',color2);
-	
 	 if(color2 == '#34d955'){
 		greenSound.play()
 		} else if(color2 == '#E8A5A5'){
@@ -152,10 +131,8 @@ function change(color1, color2,c1,c2,button){
 	 function change_color() {
 		$(button).css('background',color1);
 		 clearInterval(timer);
-    }
-	
-	console.log("Inside End of function");
-}
+    }//end of change color function
+} //end of change  function 
 	
 
     
