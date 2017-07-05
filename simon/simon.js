@@ -110,6 +110,8 @@ function play(arr){
 //		$('#1').css('background','#34d955');	
 	//	greenSound.play();
 	//	$('#1').css('background','#34d955');
+=======
+		//greenSound.play();
 		console.log("Button 1");
 		change('#006400','#34d955','1000','1000','#1');
 >>>>>>> 439231752df9dab99c3175ed6bcb040e3101f97c
