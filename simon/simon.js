@@ -101,27 +101,51 @@ function randomNumber(num){
 function play(arr){
       for(var j=0;j < simonPattern.length;j++){        
     if(simonPattern[j] == 1){
-		greenSound.play();
-		//$('#1').mouseenter();
-         $('#1').removeClass('clickable').addClass('unclickable');
-		
-//			greenSound.play();
-//		$('#1').css('background','#34d955');	
-	//	greenSound.play();
-	//	$('#1').css('background','#34d955');
+		//greenSound.play();
+		console.log("Button 1");
+		change('#006400','#34d955','1000','1000','#1');
 		
 	} else if(simonPattern[j] == 2){
-		redSound.play();
-		$('#2').css('background','#cc688e');
+		//redSound.play();
+		console.log("Button 2");
+		change('#8B0000','#E8A5A5','1000','1000','#2');
 	} else if(simonPattern[j] == 3){
-		yellowSound.play();
-		$('#3').css('background','#F3FEA5');
+		console.log("Button 3");
+		//yellowSound.play();
+		change('#FCC519','#F3FEA5','1000','1000','#3');
 	}else if(simonPattern[j] == 4){
-		blueSound.play()
-		$('#4').css('background','#A5DEFE');
+		console.log("Button 4");
+		//blueSound.play()
+		change('#052efa','#A5DEFE','1000','1000','#4');
 	}
     }//end of for loop
 }
+
+function change(color1, color2,c1,c2,button){
+	console.log("Inside Start of function");
+ var timer = setInterval(function first_color() {
+	$(button).css('background',color2);
+	
+	 if(color2 == '#34d955'){
+		greenSound.play()
+		} else if(color2 == '#E8A5A5'){
+	 	redSound.play()
+ 		} else if(color2 =='#F3FEA5'){
+			yellowSound.play();
+		}else if(color2 == '#A5DEFE'){
+			blueSound.play()
+		}
+
+       setTimeout(change_color, c2);
+   }, c1);//	
+	 function change_color() {
+		$(button).css('background',color1);
+		 clearInterval(timer);
+    }
+	
+	console.log("Inside End of function");
+}
+	
 
     
 
