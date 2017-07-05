@@ -57,6 +57,7 @@ if(onOrOff == true){
     console.log("Value of User Click: " + userClick)
 	play(userClick);
     userSelection.push(userClick);
+    play(userSelection);
     console.log(userSelection);    
     }
   }	//end of clickElement Modifier
@@ -100,7 +101,7 @@ function randomNumber(num){
     
 	
 function play(arr){
-      for(var j=0;j < simonPattern.length;j++){        
+      for(var j=0;j < arr.length;j++){        
     if(simonPattern[j] == 1){
 		change('#006400','#34d955','1000','500','#1');		
 	} else if(simonPattern[j] == 2){
