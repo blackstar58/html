@@ -101,6 +101,7 @@ function randomNumber(num){
     
 	
 function play(arr){
+	console.log("length of arr: " + arr.length);
       for(var j=0;j < arr.length;j++){        
     if(simonPattern[j] == 1){
 		change('#006400','#34d955','1000','500','#1');		
