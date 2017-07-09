@@ -5,13 +5,16 @@ var simonPattern = [];
 var onOrOff = false;
 var isItStrict = null;
 var count = 0;	
-
+var userCount = 0;
 	
 	
 var redSound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound1.mp3");	
 var blueSound = new Audio("https://s3.amazonaws.com/freecodecamp/simonSound2.mp3");
 var greenSound = new Audio ("https://s3.amazonaws.com/freecodecamp/simonSound3.mp3");
 var yellowSound = new Audio ("https://s3.amazonaws.com/freecodecamp/simonSound4.mp3");	
+var fail = new Audio('http://reduxloop.com/sound/wrong.mp3');	
+var win = new Audio('http://reduxloop.com/sound/win.mp4');	
+	
 	
 $('#strict').on("click",function(){
     if(isItStrict == null){
@@ -31,6 +34,8 @@ $('#start').on("click",function(){
 	clearAll();
     randomNumber(1);
     count++;    
+   $("#countNumber").text(count);	
+	
 	}
 		})//end of start
     
@@ -53,14 +58,22 @@ var theParent = document.querySelector("#simonClick");
     
 function clickedElement(e){
 if(onOrOff == true){
-    var userClick = e.path[0].id;
+	if(userCount < count){
+	var userClick = e.path[0].id;
     console.log("Value of User Click: " + userClick)
 	play(userClick);
     userSelection.push(userClick);
-    
+	userCount++;
+	count++;
 	//play(userSelection);
-    console.log(userSelection);    
-    }
+    console.log(userSelection)	
+	randomNumber(count);
+	}  else if (userCount == count){
+		
+		win.play();
+		
+	}
+    }//end of onandff
   }	//end of clickElement Modifier
  
 $('#countNumber').unbind("click");
@@ -72,6 +85,7 @@ function clearAll(){
 	simonPattern = [];
 	isItStrict = null;
     count=0;
+	userCount = 0;
     $("#countNumber").text('0');
 	$('#1').css('background','#006400');
 	$('#2').css('background','#8b0000');
@@ -84,7 +98,6 @@ function clearAll(){
 	
     
 function randomNumber(num){
-	num = 3;//remeber to remove
 	var k = 0;
 	while(k < num){
 		var min = 1;
@@ -93,40 +106,37 @@ function randomNumber(num){
     simonPattern.push(firstMove);
 	//play(firstMove);
     play(simonPattern);
-	count++;
-	console.log("value of Count: "  + count);
     $("#countNumber").text(count);	
 	k++;	
 	}	
 } //end of random number
-	
-t1 = ['1','2','3','4']
-t2 = ['1','2','3','3'] 	
-compare(t1,t2)	
-    
+
+
 function compare(arr1,arr2){
+   var compareArray = arr1.filter(compareElement);
+	console.log(compareArray)
 	
-	for(var k=0;k < arr2.length;k++){
+	if(compareArray.length == 0){
+		console.log("Success!!");
+		win.play();
 		
-		if(arr1[k] == arr2[k]){
-			
-			console.log("true")
-		} else {
-			console.log("false")
-			
-		}
+	} else {
 		
+		console.log("Failure!!");
+		fail.play();
 		
-	}//for loop
+	}
+
 }//compare function	
-	
-	
-	
+
+function compareElement(e){
+		return t2.indexOf(e) < 0
+}	//compareElement Array
+				  
 	
 function play(arr){
 	console.log(arr);
       for(var j=0;j < arr.length;j++){    
-	
     if(arr[j] == 1){
 		change('#006400','#34d955',j,j,'#1');		
 	} else if(arr[j] == 2){
@@ -142,9 +152,7 @@ function play(arr){
 function change(color1, color2,c1,c2,button){
 
 setTimeout(function(){
- var timer = setInterval(function first_color() {
-	 
-	//$(button).css('background',color2);
+ var timer = setInterval(function first_color() {	 
 	 if(color2 == '#34d955'){
 		$(button).css('background',color2); 
 		greenSound.play()
@@ -164,9 +172,7 @@ setTimeout(function(){
 		$(button).css('background',color1);
 		 clearInterval(timer);
     }//end of change color function	
-	
 },700*c2)//setTimeOut
-	
 } //end of change  function 
 	
 
