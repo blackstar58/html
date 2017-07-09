@@ -57,7 +57,8 @@ if(onOrOff == true){
     console.log("Value of User Click: " + userClick)
 	play(userClick);
     userSelection.push(userClick);
-    play(userSelection);
+    
+	//play(userSelection);
     console.log(userSelection);    
     }
   }	//end of clickElement Modifier
@@ -83,14 +84,14 @@ function clearAll(){
 	
     
 function randomNumber(num){
-	
+	num = 3;//remeber to remove
 	var k = 0;
 	while(k < num){
 		var min = 1;
 	var max = 5;
 	var firstMove = Math.floor(Math.random() * (max - min))	+ min;
     simonPattern.push(firstMove);
-	play(firstMove);
+	//play(firstMove);
     play(simonPattern);
 	count++;
 	console.log("value of Count: "  + count);
@@ -98,42 +99,74 @@ function randomNumber(num){
 	k++;	
 	}	
 } //end of random number
+	
+t1 = ['1','2','3','4']
+t2 = ['1','2','3','3'] 	
+compare(t1,t2)	
     
+function compare(arr1,arr2){
+	
+	for(var k=0;k < arr2.length;k++){
+		
+		if(arr1[k] == arr2[k]){
+			
+			console.log("true")
+		} else {
+			console.log("false")
+			
+		}
+		
+		
+	}//for loop
+}//compare function	
+	
+	
+	
 	
 function play(arr){
-	console.log("length of arr: " + arr.length);
-      for(var j=0;j < arr.length;j++){        
-    if(simonPattern[j] == 1){
-		change('#006400','#34d955','1000','500','#1');		
-	} else if(simonPattern[j] == 2){
-		change('#8B0000','#E8A5A5','1000','500','#2');
-	} else if(simonPattern[j] == 3){
-		change('#FCC519','#F3FEA5','1000','500','#3');
-	}else if(simonPattern[j] == 4){
-		change('#052efa','#A5DEFE','1000','500','#4');
+	console.log(arr);
+      for(var j=0;j < arr.length;j++){    
+	
+    if(arr[j] == 1){
+		change('#006400','#34d955',j,j,'#1');		
+	} else if(arr[j] == 2){
+		change('#8B0000','#E8A5A5',j,j,'#2');
+	} else if(arr[j] == 3){
+		change('#FCC519','#F3FEA5',j,j,'#3');
+	}else if(arr[j] == 4){
+		change('#052efa','#A5DEFE',j,j,'#4');
 	}
     }//end of for loop
 } //end of play
 
 function change(color1, color2,c1,c2,button){
+
+setTimeout(function(){
  var timer = setInterval(function first_color() {
-	$(button).css('background',color2);
+	 
+	//$(button).css('background',color2);
 	 if(color2 == '#34d955'){
+		$(button).css('background',color2); 
 		greenSound.play()
 		} else if(color2 == '#E8A5A5'){
+			$(button).css('background',color2);
 	 	redSound.play()
  		} else if(color2 =='#F3FEA5'){
+			$(button).css('background',color2);
 			yellowSound.play();
 		}else if(color2 == '#A5DEFE'){
+			$(button).css('background',color2);
 			blueSound.play()
 		}
-
-       setTimeout(change_color, c2);
-   }, c1);//	
+       setTimeout(change_color, 500);
+   }, 500*c2);//	
 	 function change_color() {
 		$(button).css('background',color1);
 		 clearInterval(timer);
-    }//end of change color function
+    }//end of change color function	
+	
+},700*c2)//setTimeOut
+	
 } //end of change  function 
 	
 
