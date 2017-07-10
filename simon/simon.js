@@ -112,7 +112,7 @@ function randomNumber(num){
 } //end of random number
 
 
-function compare(arr1,arr2){
+function compare(arr1){
    var compareArray = arr1.filter(compareElement);
 	console.log(compareArray)
 	
@@ -130,7 +130,7 @@ function compare(arr1,arr2){
 }//compare function	
 
 function compareElement(e){
-		return t2.indexOf(e) < 0
+		return simonPattern.indexOf(e) < 0
 }	//compareElement Array
 				  
 	
