@@ -58,21 +58,24 @@ var theParent = document.querySelector("#simonClick");
     
 function clickedElement(e){
 if(onOrOff == true){
-	if(userCount < count){
-	var userClick = e.path[0].id;
-    console.log("Value of User Click: " + userClick)
-	play(userClick);
-    userSelection.push(userClick);
-	userCount++;
-	count++;
-	//play(userSelection);
-    console.log(userSelection)	
-	randomNumber(count);
-	}  else if (userCount == count){
-		
-		win.play();
-		
-	}
+    if(userSelection.length == 0 && count == 1){
+	   var userClick = e.path[0].id; 
+        userSelection.push(userClick);
+        compare(userSelection);
+        count++;
+		//win.play(); 
+     console.log("In first part")
+    } else if(userSelection.length < count && userSelection.length != 0){  
+	   var userClick = e.path[0].id;
+       userSelection.push(userClick);
+        console.log("In Second part")
+    } else if(userSelection.length == count){
+        console.log("Third Part!!")
+        compare(userSelection);
+        count++;
+		win.play();        
+    } //end of if statement
+
     }//end of onandff
   }	//end of clickElement Modifier
  
@@ -115,16 +118,14 @@ function randomNumber(num){
 function compare(arr1){
    var compareArray = arr1.filter(compareElement);
 	console.log(compareArray)
-	
 	if(compareArray.length == 0){
 		console.log("Success!!");
 		win.play();
-		
+        return true
 	} else {
-		
 		console.log("Failure!!");
 		fail.play();
-		
+        return false
 	}
 
 }//compare function	
@@ -132,8 +133,6 @@ function compare(arr1){
 function compareElement(e){
 		return simonPattern.indexOf(e) < 0
 }	//compareElement Array
-				  
-	
 function play(arr){
 	console.log(arr);
       for(var j=0;j < arr.length;j++){    
