@@ -46,8 +46,7 @@ $('#myonoffswitch').on("click",function(){
  		clearAll();
     } else if(onOrOff == true){
         onOrOff = false;
-    }
-    
+    }  
 }) //On or Off switch   
     
 var theParent = document.querySelector("#simonClick");
@@ -55,25 +54,22 @@ var theParent = document.querySelector("#simonClick");
     var childElement = theParent.children[i];
     childElement.addEventListener('click', clickedElement, false);
 }//end of click listener
-    
 function clickedElement(e){
 if(onOrOff == true){
     if(userSelection.length == 0 && count == 1){
-	   var userClick = e.path[0].id; 
-        userSelection.push(userClick);
-        compare(userSelection);
-        count++;
-		//win.play(); 
-     console.log("In first part")
+	   var userClick = parseInt(e.path[0].id); 
+        userSelection.push(userClick); 
+        compare(userSelection)
     } else if(userSelection.length < count && userSelection.length != 0){  
 	   var userClick = e.path[0].id;
        userSelection.push(userClick);
+        compare(userSelection);
         console.log("In Second part")
     } else if(userSelection.length == count){
-        console.log("Third Part!!")
+        var userClick = e.path[0].id;
+       userSelection.push(userClick);
         compare(userSelection);
-        count++;
-		win.play();        
+        console.log("Third")        
     } //end of if statement
 
     }//end of onandff
@@ -121,10 +117,17 @@ function compare(arr1){
 	if(compareArray.length == 0){
 		console.log("Success!!");
 		win.play();
-        return true
+        count++;
+        userCount = 0;
+        userSelection = [];
+        simonPattern = [];
+        randomNumber(count)
 	} else {
 		console.log("Failure!!");
 		fail.play();
+        userCount = 0;
+        userSelection = [];
+        play(simonPattern)
         return false
 	}
 
