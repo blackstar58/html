@@ -90,10 +90,6 @@ function clearAll(){
     count=0;
 	userCount = 0;
     $("#countNumber").text("0");
-	/*("#1").css("background","#006400");
-	$("#2").css("background","#8b0000");
-	$("#3").css("background","#FCC519");
-	$("#4").css("background","#052efa"); */
 }//clear all elements	
 	
 	
