@@ -138,7 +138,7 @@ function compareElement(e){
 }	//compareElement Array
 function play(arr){
 	console.log(arr);
-      for(var j=0;j < arr.length;j++){    
+      for(var j=0;j < arr.length;j++){ 
     if(arr[j] == 1){
 		change("#006400","#34d955",j,j,"#1");		
 	} else if(arr[j] == 2){
@@ -168,7 +168,7 @@ setTimeout(function(){
 			$(button).css("background",color2);
 			blueSound.play()
 		}
-       setTimeout(change_color, 500);
+       setTimeout(change_color, 300);
    }, 500*c2);//	
 	 function change_color() {
 		$(button).css("background","");//color
