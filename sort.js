@@ -2,7 +2,7 @@ function merge_sort(arr){
     temp_arr = arr
     for (var i = 0; i < arr.length;i++){
         
-        for(var j = 0; j<arr.length -1;j++){
+        for(var j = 0; j<arr.length;j++){
             
             if (arr[j] > arr[j+1]){
                     var temp = arr[j]
@@ -18,4 +18,4 @@ function merge_sort(arr){
 
 }
 
-merge_sort([2,3,1,5,6,88,9,4])
+merge_sort([9,3,1,5,6,88,2,4])
