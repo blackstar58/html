@@ -150,7 +150,7 @@ function play(arr){
 	}
     }//end of for loop
 } //end of play
-
+ n
 function change(color1, color2,c1,c2,button){
 
 setTimeout(function(){
