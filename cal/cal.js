@@ -207,7 +207,6 @@ function doSomething(e) {
                 
                 var t = parseFloat(arr[j]);
                        total += t; 
-                console.log(total);
             } else {
                 
                 var action = null;
