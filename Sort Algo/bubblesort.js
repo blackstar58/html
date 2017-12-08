@@ -1,18 +1,19 @@
 function bubbleSort(arr){
-	
+
 	for (var j=0;j<arr.length;j++){
-		
+		console.log("Value in J For Loop: ", arr[j])
 		for (var i =0;i <arr.length;i++){
+			console.log("Value in I For Loop: ",arr[i])
 			if (arr[i] > arr[i+1]){
 				var temp = arr[i]
 				arr[i] = arr[i+1]
 				arr[i+1] = temp
-			}//end of if statement			
+			}//end of if statement
 		}//end of second for loop
 	}//end of first for loop
 
 	console.log(arr)
-	
+
 }//end of function
 
 
